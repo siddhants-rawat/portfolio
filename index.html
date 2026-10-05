@@ -184,6 +184,13 @@ a{color:inherit}
 .play .card{animation:slash .7s var(--ease) backwards}
 .play .card:nth-child(2){animation-delay:.12s}.play .card:nth-child(3){animation-delay:.24s}
 
+.byline{display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:end;border:4px solid var(--ink);padding:16px 18px;text-decoration:none;color:var(--ink);background:var(--paper);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+.byline:hover,.byline:focus-visible{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink);outline:none}
+.byline .pub{grid-column:1/-1;font-family:var(--f-mono);font-weight:700;font-size:12px;letter-spacing:1px}
+.byline b{font-family:var(--f-disp);font-weight:400;font-size:clamp(22px,2.6vw,30px);line-height:1.1;text-transform:uppercase;letter-spacing:.5px}
+.byline .go{font-family:var(--f-disp);font-size:18px;letter-spacing:1px;white-space:nowrap;border:3px solid var(--ink);padding:2px 10px}
+@media (min-width:821px){.grid{grid-template-columns:repeat(2,1fr)}}
+.play .card:nth-child(4){animation-delay:.36s}
 /* ---------- MODAL ---------- */
 #modal{position:fixed;inset:0;z-index:90;display:none;background:rgba(10,10,10,.95);overflow-y:auto;padding:30px 16px}
 #modal.on{display:block}
@@ -284,6 +291,76 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
   .mhero h2{max-width:none}
   .nav a{margin-left:10px;font-size:11px}
   .logo{font-size:18px}
+}
+
+/* ---------- phone refinements (desktop untouched) ---------- */
+@media (max-width:820px){
+  body{font-size:16px}
+  .nav .wrap{height:50px}
+  .nav a{margin-left:9px;font-size:10.5px;letter-spacing:.2px}
+  .cover{margin:18px auto 60px;grid-template-columns:34px 1fr}
+  .spine{padding:12px 0} .spine b{font-size:15px;letter-spacing:3px} .spine small{font-size:10px;letter-spacing:4px}
+  .cv{padding:16px 14px 24px}
+  .cv > .enso{width:240px;height:240px;right:-90px;top:-40px}
+  .narr{padding:16px 16px;font-size:17px;box-shadow:6px 6px 0 var(--ink)}
+  .roles{gap:10px;margin-top:24px}
+  .roles span{font-size:16px;padding:5px 12px}
+  .head{margin-bottom:30px;gap:10px}
+  .head h2{font-size:56px}
+  .head .kick{font-size:15px}
+  #vols{padding-left:58px}
+  #vols::before,#vols::after{left:19px;width:5px}
+  .nib{left:10px;width:24px;height:24px;margin-top:-12px}
+  .badge{left:-58px;width:46px;top:-4px} .badge .cr{width:46px;height:46px}
+  .yr{font-size:13px;margin-top:-4px}
+  .vol{margin-bottom:64px}
+  .page{gap:10px}
+  .p{padding:14px 14px;border-width:3px}
+  .title{min-height:0;padding-right:14px}
+  .title h3{font-size:32px}
+  .chap{font-size:14px}
+  .meta{font-size:12px}
+  .stamp b{font-size:20px;padding:2px 10px} .stamp i{font-size:15px;padding:3px 8px}
+  .p h4{font-size:21px}
+  .stat{min-height:0;padding-top:16px;padding-bottom:16px}
+  .stat b{font-size:42px}
+  .bub{padding:18px 22px;font-size:15px}
+  .sfx{font-size:44px;bottom:-26px;right:2px}
+  .ch{gap:8px;margin-top:12px}
+  .ch b{font-size:18px;padding:2px 10px;white-space:nowrap}
+  .ch span{font-size:11px}
+  .vault{padding:56px 0 70px}
+  .vault > .enso{width:320px;height:320px;right:-160px}
+  .cut .c{font-size:46px;padding:6px 8px 3px}
+  .cut .w{margin-right:12px}
+  .lede{font-size:17px;margin-bottom:30px}
+  .grid{gap:20px}
+  .card{min-height:0;padding:16px;gap:12px}
+  .card > .cr{width:120px;height:120px}
+  .card h3{font-size:clamp(30px,12cqw,46px)}
+  #modal{padding:10px 8px}
+  .sheet{border-width:4px;outline-width:3px;padding-bottom:20px}
+  .sheet .bar{padding:8px 12px} .sheet .bar b{font-size:20px}
+  .mhero{min-height:0;padding:20px 16px 22px}
+  .mhero > .cr{position:relative;right:auto;top:auto;margin:0 0 12px;width:84px;height:84px;opacity:1}
+  .mhero h2{font-size:44px}
+  .mhero p{font-size:15px}
+  .mbody{padding:16px 12px 0;gap:14px}
+  .blk{padding:14px 14px;border-width:3px}
+  .blk h4{font-size:23px}
+  .f{font-size:13px;padding:10px 12px;overflow-wrap:anywhere}
+  .node{padding:8px 10px;font-size:15px;border-width:3px}
+  .link{margin-left:24px;height:22px}
+  .cast{gap:14px}
+  .byline{grid-template-columns:1fr;padding:14px 14px;border-width:3px}
+  .byline b{font-size:21px}
+  .byline .go{justify-self:start;font-size:16px}
+  .end{padding:80px 16px 90px}
+  .end h2{font-size:54px}
+  .btn{font-size:17px;padding:9px 16px}
+  #op .bars{margin-top:-5vh}
+  #op .bars b{font-size:clamp(30px,10vw,52px);padding:2px 14px 4px}
+  .x:focus{outline:3px solid var(--paper);outline-offset:2px}
 }
 @media (prefers-reduced-motion:reduce){
   *,::before,::after{animation:none!important;transition:none!important}
@@ -485,6 +562,11 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
         <h3><span>THREE VOICES, ONE GUY</span></h3>
         <p>The community voice, the inside guy and the brand account.</p>
         <span class="open">OPEN ▸</span></button>
+      <button class="card" data-m="m-writer"><div class="pat sei"></div>
+        <div class="tag"><span>Special chapter 4</span><span>Writing</span></div><div class="cr" data-crest="kikko" data-k="筆"></div>
+        <h3><span>THE WRITER</span></h3>
+        <p>Bylines on anime and pop culture for News9 Live, and posts for DG3 Terminal on X.</p>
+        <span class="open">OPEN ▸</span></button>
     </div>
   </div>
 </section>
@@ -559,6 +641,21 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
         <dt>Edge</dt><dd>Still drops an unhinged take when the moment calls for it</dd>
         <dt>Signature</dt><dd>Signals, slates and results</dd></dl></div>
     </div>
+  </div>
+</template>
+
+<template id="m-writer">
+  <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="kikko" data-k="筆"></div><h2>THE WRITER</h2><p>From the college yearbook to a national news site to a trading terminal's timeline. Same habit: say the thing people are already thinking, a little better.</p></div>
+  <div class="mbody">
+    <div class="blk ink"><h4><em>一</em>Culture</h4><p>Anime and pop culture writing for News9 Live, from the point of view of an Indian fan.</p></div>
+    <a class="byline" href="https://www.news9live.com/entertainment/ott/stranger-things-directors-duffer-brothers-netflix-adapting-death-note-makes-anime-fan-largely-apprehensive-mildly-hopeful-182603" target="_blank" rel="noopener">
+      <span class="pub">NEWS9 LIVE · OTT</span><b>Duffer Brothers, Netflix adapting Death Note makes an anime fan largely apprehensive and mildly hopeful</b><span class="go">READ ▸</span></a>
+    <a class="byline" href="https://www.news9live.com/entertainment/an-indian-anime-manga-japanese-weebs-day-out-notes-on-watching-jujutsu-kaisen-0-on-big-screen-180935" target="_blank" rel="noopener">
+      <span class="pub">NEWS9 LIVE · ENTERTAINMENT</span><b>An Indian weeb's day out: notes on watching Jujutsu Kaisen 0 on the big screen</b><span class="go">READ ▸</span></a>
+    <div class="blk ink"><h4><em>二</em>Markets</h4><p>Writing for DG3 Terminal's X account, for prediction market traders.</p></div>
+    <a class="byline" href="https://x.com/DG3_terminal/status/1994020450062782584" target="_blank" rel="noopener">
+      <span class="pub">X · @DG3_TERMINAL</span><b>Predictable Pitfalls that Plague Prediction Markets, and How to Deal with Them</b><span class="go">READ ▸</span></a>
+    <div class="blk"><h4><em>三</em>Where it started</h4><p>Writer on Ed Board, the team behind the MIT Manipal yearbook.</p></div>
   </div>
 </template>
 
