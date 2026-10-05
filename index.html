@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Siddhant Singh Rawat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&family=Courier+Prime:wght@700&family=Dela+Gothic+One&family=Yuji+Syuku&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0A0A; --paper:#F5F2E8; --g1:#BDB9AF; --g2:#8B887F;
+  --pop:cubic-bezier(.3,1.6,.5,1); --ease:cubic-bezier(.2,.8,.2,1);
+  --f-disp:"Anton",Impact,"Arial Narrow",sans-serif; --f-body:"Archivo",Helvetica,Arial,sans-serif;
+  --f-jp:"Dela Gothic One",sans-serif; --f-brush:"Yuji Syuku",serif; --f-mono:"Courier Prime",Courier,monospace;
+  --sei-ink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Cdefs%3E%3Cg id='c' fill='%23F5F2E8' stroke='%230A0A0A' stroke-width='1.5'%3E%3Ccircle r='19.5'/%3E%3Ccircle r='14.5' fill='none'/%3E%3Ccircle r='9.5' fill='none'/%3E%3Ccircle r='4.5' fill='none'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23c' x='20' y='-10'/%3E%3Cuse href='%23c' x='0' y='0'/%3E%3Cuse href='%23c' x='40' y='0'/%3E%3Cuse href='%23c' x='20' y='10'/%3E%3Cuse href='%23c' x='0' y='20'/%3E%3Cuse href='%23c' x='40' y='20'/%3E%3Cuse href='%23c' x='20' y='30'/%3E%3C/svg%3E");
+  --sei-paper:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Cdefs%3E%3Cg id='c' fill='%230A0A0A' stroke='%23F5F2E8' stroke-width='1.5'%3E%3Ccircle r='19.5'/%3E%3Ccircle r='14.5' fill='none'/%3E%3Ccircle r='9.5' fill='none'/%3E%3Ccircle r='4.5' fill='none'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23c' x='20' y='-10'/%3E%3Cuse href='%23c' x='0' y='0'/%3E%3Cuse href='%23c' x='40' y='0'/%3E%3Cuse href='%23c' x='20' y='10'/%3E%3Cuse href='%23c' x='0' y='20'/%3E%3Cuse href='%23c' x='40' y='20'/%3E%3Cuse href='%23c' x='20' y='30'/%3E%3C/svg%3E");
+  --kik:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34.64' height='60'%3E%3Cpath d='M0 10L17.32 0L34.64 10M0 10V30M34.64 10V30M0 30L17.32 40L34.64 30M17.32 40V60' fill='none' stroke='%230A0A0A' stroke-width='1.6'/%3E%3C/svg%3E");
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.6 -.55'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;overflow-x:hidden}
+body.locked{overflow:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+a{color:inherit}
+.fx{position:absolute;width:0;height:0}
+
+/* ---------- brush ink: every black block is painted, not filled ---------- */
+.p.ink,.blk.ink,.chap,.roles span,.issue,.yr,.stamp b,.stamp i,.ch b,.head .kick,.card .tag span,.card p,.btn,.node.hot,.node b,.mhero p,.spine,.who dt,.meta-ink{position:relative;isolation:isolate;background:transparent!important}
+.p.ink::before,.blk.ink::before,.chap::before,.roles span::before,.issue::before,.yr::before,.stamp b::before,.stamp i::before,.ch b::before,.head .kick::before,.card .tag span::before,.card p::before,.btn::before,.node.hot::before,.node b::before,.mhero p::before,.spine::before,.who dt::before{
+  content:"";position:absolute;inset:0;background:var(--ink);filter:url(#brush);z-index:-1}
+.p.ink::before,.blk.ink::before,.card p::before,.mhero p::before,.stamp b::before,.node.hot::before,.chap::before,.roles span::before,.issue::before,.yr::before,.ch b::before,.card .tag span::before,.btn::before{filter:url(#edge)}
+.spine::before{filter:url(#brush3)}
+.stamp i::before,.who dt::before,.node b::before,.head .kick::before{filter:url(#rough)}
+.p.ink,.blk.ink{border-color:transparent!important}
+
+/* ---------- patterns ---------- */
+.pat{position:absolute;pointer-events:none;z-index:0}
+.sei{background-image:var(--sei-ink);background-size:40px 20px}
+.sei-l{background-image:var(--sei-paper);background-size:40px 20px}
+.kik{background-image:var(--kik);background-size:34.64px 60px}
+.enso{position:absolute;pointer-events:none;z-index:0}
+.enso path{fill:none;stroke-linecap:round}
+
+/* ---------- old film ---------- */
+.film{position:fixed;inset:0;pointer-events:none;z-index:150;overflow:hidden}
+.film .grain{position:absolute;inset:-60px;background-image:var(--noise);opacity:.14;animation:grain .5s steps(4) infinite}
+.film .scr{position:absolute;top:-5%;bottom:-5%;width:2px;background:var(--ink);opacity:0;animation:scr 3.7s steps(1) infinite}
+.film .scr.b{width:1px;animation-duration:5.3s;animation-delay:1.1s}
+.film .dust{position:absolute;width:5px;height:5px;border-radius:40% 60% 50% 50%;background:var(--ink);opacity:0;animation:dust 4.1s steps(1) infinite}
+.film .dust.b{width:3px;height:7px;animation-duration:6.2s;animation-delay:2s}
+.film .flick{position:absolute;inset:0;background:var(--ink);opacity:0;animation:flick 5.9s steps(1) infinite}
+
+/* ---------- OPENING ---------- */
+#op{position:fixed;inset:0;z-index:100;background:var(--paper);overflow:hidden}
+#op .shot{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--paper);
+  clip-path:polygon(0 0,0 0,-25% 100%,-25% 100%);transition:clip-path .3s var(--ease)}
+#op .shot.r{clip-path:polygon(125% 0,125% 0,100% 100%,100% 100%)}
+#op .shot.on{clip-path:polygon(0 0,125% 0,100% 100%,-25% 100%)}
+#op .shot .pat{inset:0;opacity:.09}
+#op .cr{position:relative;z-index:2;width:min(52vh,64vw);height:min(52vh,64vw);transform:rotate(-140deg) scale(.35);opacity:0;transition:transform .5s var(--pop),opacity .2s}
+#op .shot.on .cr{transform:rotate(0) scale(1);opacity:1}
+#op .bars{position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:-7vh}
+#op .bars b{font-family:var(--f-disp);font-weight:400;color:var(--paper);font-size:clamp(38px,8.5vw,112px);line-height:1.08;padding:2px 22px 4px;text-align:center;letter-spacing:1px;
+  clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path .28s var(--ease) .12s;position:relative;isolation:isolate}
+#op .bars i{font-style:normal;font-family:var(--f-jp);color:var(--paper);font-size:clamp(16px,2.4vw,28px);padding:4px 14px;position:relative;isolation:isolate;
+  clip-path:polygon(0 0,0 0,0 100%,0 100%);transition:clip-path .28s var(--ease) .22s}
+#op .bars b::before,#op .bars i::before{content:"";position:absolute;inset:0;background:var(--ink);filter:url(#brush2);z-index:-1}
+#op .shot.on .bars b,#op .shot.on .bars i{clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+#op .shot.on .bars b{animation:shake .28s .35s}
+#op.out{animation:opout .5s var(--ease) forwards}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:40;background:var(--ink);color:var(--paper)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:54px}
+.logo{font-family:var(--f-disp);font-size:24px;letter-spacing:1px;color:var(--paper)}
+.nav a{color:var(--paper);text-decoration:none;font-family:var(--f-mono);font-weight:700;font-size:13px;margin-left:18px;text-transform:uppercase}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- COVER ---------- */
+.cover{position:relative;margin:34px auto 90px;border:6px solid var(--ink);background:var(--paper);display:grid;grid-template-columns:64px 1fr;overflow:hidden}
+.spine{color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:16px 0}
+.spine b{font-family:var(--f-disp);font-weight:400;writing-mode:vertical-rl;font-size:26px;letter-spacing:4px}
+.spine small{font-family:var(--f-jp);writing-mode:vertical-rl;font-size:15px;letter-spacing:6px}
+.cv{position:relative;padding:22px 26px 34px;overflow:hidden}
+.cv > *{position:relative;z-index:2}
+.cv > .enso{position:absolute;z-index:0;right:-70px;top:-60px;width:380px;height:380px;opacity:.16}
+.cv > .pat{position:absolute;z-index:0;left:0;right:0;bottom:0;height:120px;opacity:.16;-webkit-mask:linear-gradient(transparent,#000);mask:linear-gradient(transparent,#000)}
+.issue{display:inline-block;color:var(--paper);font-family:var(--f-disp);font-size:16px;padding:4px 14px;letter-spacing:3px}
+.name{font-family:var(--f-disp);font-weight:400;font-size:clamp(46px,8vw,96px);line-height:1;white-space:nowrap;margin:14px 0 8px;letter-spacing:1px}
+.name .l{display:inline-block}
+.name .wd{display:inline-block;white-space:nowrap}
+.name-rule{height:10px;background:var(--ink);transform-origin:left;margin-bottom:26px;filter:url(#brush)}
+.cv-grid{display:block}
+.narr{background:var(--paper);border:4px solid var(--ink);padding:22px 26px;font-size:clamp(18px,1.9vw,22px);line-height:1.5;font-weight:600;box-shadow:8px 8px 0 var(--ink)}
+.roles{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:34px}
+.roles span{color:var(--paper);font-family:var(--f-disp);font-size:clamp(17px,2vw,24px);letter-spacing:1px;padding:6px 18px;transform:skewX(-10deg)}
+.roles span i{display:inline-block;transform:skewX(10deg);font-style:normal}
+.go .name .l{animation:ink .55s var(--pop) backwards;animation-delay:calc(var(--i)*35ms)}
+.go .name-rule{animation:wipe .7s var(--ease) .75s backwards}
+.go .narr{animation:rise .7s var(--ease) .9s backwards}
+.go .roles span{animation:pop .45s var(--pop) backwards;animation-delay:calc(1.1s + var(--i)*110ms)}
+.go > .cv > .enso{animation:spinin 1.2s var(--ease) .2s backwards}
+
+/* ---------- SECTION HEADS ---------- */
+.head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:0 0 44px}
+.head h2{font-family:var(--f-disp);font-weight:400;font-size:clamp(56px,9vw,104px);line-height:.95;letter-spacing:1px}
+.head .kick{font-family:var(--f-jp);color:var(--paper);padding:5px 14px;font-size:18px;letter-spacing:2px}
+
+/* ---------- VOLUMES ---------- */
+#vols{position:relative;padding:6px 0 30px 104px}
+#vols::before,#vols::after{content:"";position:absolute;left:46px;top:0;bottom:0;width:6px;background:var(--ink)}
+#vols::before{opacity:.12}
+#vols::after{transform-origin:top;transform:scaleY(var(--p,1));filter:url(#brush)}
+.nib{position:absolute;left:35px;top:calc(var(--p,1)*100%);width:28px;height:28px;margin-top:-14px;z-index:3;border-radius:50%;background:var(--ink);filter:url(#brush)}
+.vol{position:relative;margin-bottom:84px}
+.badge{position:absolute;left:-104px;top:-6px;width:96px;z-index:2;text-align:center}
+.badge .cr{width:96px;height:96px}
+.yr{display:block;color:var(--paper);font-family:var(--f-disp);font-weight:400;font-size:22px;letter-spacing:1px;margin-top:-6px;padding:1px 0}
+.page{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.p{position:relative;border:4px solid var(--ink);background:var(--paper);padding:16px 18px;overflow:hidden}
+.p > *{position:relative;z-index:2}
+.p.ink{color:var(--paper);overflow:visible}
+.p.sk{transform:skewX(-3deg)} .p.sk > *{transform:skewX(3deg)}
+.s6{grid-column:span 6}.s4{grid-column:span 4}.s3{grid-column:span 3}.s2{grid-column:span 2}
+.title{min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;padding-right:190px}
+.title > .pat{position:absolute;z-index:0;right:0;top:0;bottom:0;width:60%;opacity:.13;-webkit-mask:linear-gradient(90deg,transparent,#000);mask:linear-gradient(90deg,transparent,#000)}
+.chap{align-self:flex-start;color:var(--paper);font-family:var(--f-disp);font-size:clamp(15px,1.6vw,19px);letter-spacing:1px;padding:3px 14px;margin-bottom:10px;transform:skewX(-10deg)}
+.title h3{font-family:var(--f-disp);font-weight:400;font-size:clamp(34px,4.6vw,56px);line-height:1.02;letter-spacing:.5px;text-transform:uppercase}
+.meta{align-self:flex-start;background:var(--paper);font-family:var(--f-mono);font-weight:700;font-size:14px;text-transform:uppercase;padding:4px 8px;margin-top:10px;border:2px solid var(--ink)}
+.stamp{position:absolute!important;z-index:3;right:16px;top:16px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.stamp b{font-family:var(--f-disp);font-weight:400;color:var(--paper);font-size:clamp(26px,3vw,38px);line-height:1.1;padding:2px 14px;letter-spacing:2px}
+.stamp i{font-style:normal;font-family:var(--f-jp);color:var(--paper);font-size:19px;letter-spacing:2px;padding:4px 12px}
+.p ul{padding-left:18px} .p li{margin-bottom:6px}
+.p h4{font-family:var(--f-disp);font-weight:400;font-size:24px;letter-spacing:.5px;margin-bottom:6px;text-transform:uppercase}
+.stat{display:flex;flex-direction:column;justify-content:center;min-height:130px}
+.stat b{font-family:var(--f-disp);font-weight:400;font-size:clamp(40px,5vw,58px);line-height:1;letter-spacing:1px}
+.stat span{font-size:14px;font-weight:600;margin-top:6px}
+.stat > .pat{position:absolute;z-index:0;right:6px;top:6px;width:120px;height:70px;opacity:.28;-webkit-mask:radial-gradient(circle at 100% 0,#000,transparent 75%);mask:radial-gradient(circle at 100% 0,#000,transparent 75%)}
+.bub{position:relative;background:#fff;color:var(--ink);border:4px solid var(--ink);border-radius:50%/42%;padding:22px 30px;font-family:var(--f-body);font-weight:800;font-size:16px;text-transform:uppercase;line-height:1.3;text-align:center;align-self:center}
+.bub::after{content:"";position:absolute;left:24%;bottom:-22px;border:12px solid transparent;border-top:16px solid var(--ink);transform:skewX(25deg)}
+.bubp{display:flex;align-items:center;justify-content:center;background:var(--paper)}
+.bubp > .pat{inset:0;opacity:.1}
+.sfx{position:absolute;z-index:6;right:-10px;bottom:-38px;font-family:var(--f-jp);font-size:clamp(46px,7vw,82px);color:var(--ink);-webkit-text-stroke:3px var(--paper);paint-order:stroke fill;transform:rotate(-10deg);pointer-events:none;text-shadow:4px 4px 0 var(--paper);filter:url(#brush)}
+.ch{grid-column:span 6;display:flex;align-items:center;gap:12px;margin-top:18px}
+.ch b{font-family:var(--f-disp);font-weight:400;font-size:24px;letter-spacing:1px;color:var(--paper);padding:2px 14px}
+.ch span{font-family:var(--f-mono);font-weight:700;font-size:13px;text-transform:uppercase}
+.ch::after{content:"";flex:1;height:4px;background:var(--ink);filter:url(#brush)}
+.play .badge .cr svg{animation:spinin .8s var(--pop) backwards}
+.play .yr{animation:pop .45s var(--pop) .3s backwards}
+.play .page > *{animation:slash .6s var(--ease) backwards}
+.play .page > :nth-child(2){animation-delay:.07s}.play .page > :nth-child(3){animation-delay:.14s}
+.play .page > :nth-child(4){animation-delay:.21s}.play .page > :nth-child(5){animation-delay:.28s}
+.play .page > :nth-child(6){animation-delay:.35s}.play .page > :nth-child(7){animation-delay:.42s}
+.play .page > :nth-child(n+8){animation-delay:.48s}
+.play .stamp b{animation:stamp .45s var(--pop) .45s backwards}
+.play .stamp i{animation:stamp .45s var(--pop) .6s backwards}
+.play .sfx{animation:stampSfx .5s var(--pop) .6s backwards}
+
+/* ---------- INSIDE MY HEAD ---------- */
+.vault{position:relative;background:var(--ink);color:var(--paper);padding:80px 0 100px;overflow:hidden;margin-top:20px}
+.vault > .pat{inset:0;opacity:.09}
+.vault > .enso{right:-120px;top:40px;width:560px;height:560px;opacity:.18}
+.vault .wrap{position:relative;z-index:2}
+.cut{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.cut .w{display:flex;gap:4px;margin-right:22px}
+.cut .c{display:inline-block;background:var(--paper);color:var(--ink);font-family:var(--f-disp);font-size:clamp(52px,9vw,112px);line-height:1;padding:8px 12px 4px;transform:rotate(var(--r));clip-path:var(--cp);filter:url(#edge)}
+.play .cut .c{animation:ink .55s var(--pop) backwards;animation-delay:calc(var(--i)*40ms)}
+.lede{max-width:620px;font-size:19px;font-weight:600;margin-bottom:46px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
+.card{container-type:inline-size;position:relative;min-height:540px;gap:14px;border:5px solid var(--paper);background:var(--paper);color:var(--ink);cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:18px;text-align:left;font:inherit;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.card:hover,.card:focus-visible{transform:translate(-5px,-5px) rotate(-.6deg);box-shadow:10px 10px 0 var(--paper);outline:none}
+.card > *{position:relative;z-index:2}
+.card > .pat{position:absolute;z-index:0;left:0;right:0;bottom:0;height:45%;opacity:.16;-webkit-mask:linear-gradient(transparent,#000);mask:linear-gradient(transparent,#000)}
+.card > .cr{position:relative;z-index:1;align-self:center;width:150px;height:150px;flex:none;margin:6px 0 4px;transition:transform .6s var(--ease)}
+.card:hover > .cr{transform:rotate(30deg)}
+.card .tag{display:flex;justify-content:space-between;font-family:var(--f-mono);font-weight:700;font-size:12px;text-transform:uppercase}
+.card .tag span{color:var(--paper);padding:2px 8px}
+.card h3{font-family:var(--f-disp);font-weight:400;font-size:clamp(32px,13cqw,56px);line-height:1.04;letter-spacing:1px;align-self:flex-start;text-shadow:0 0 0 var(--paper);max-width:100%}
+.card h3 span{padding:0}
+.card p{color:var(--paper);padding:10px 12px;font-weight:600;font-size:15px}
+.card .open{align-self:flex-end;font-family:var(--f-disp);font-size:16px;letter-spacing:1px;background:var(--paper);border:3px solid var(--ink);padding:3px 12px}
+.play .card{animation:slash .7s var(--ease) backwards}
+.play .card:nth-child(2){animation-delay:.12s}.play .card:nth-child(3){animation-delay:.24s}
+
+/* ---------- MODAL ---------- */
+#modal{position:fixed;inset:0;z-index:90;display:none;background:rgba(10,10,10,.95);overflow-y:auto;padding:30px 16px}
+#modal.on{display:block}
+.sheet{position:relative;max-width:920px;margin:0 auto;background:var(--paper);color:var(--ink);border:6px solid var(--ink);outline:4px solid var(--paper);padding:0 0 30px}
+.sheet .bar{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--paper);display:flex;justify-content:space-between;align-items:center;padding:10px 16px}
+.sheet .bar b{font-family:var(--f-disp);font-weight:400;font-size:24px;letter-spacing:1px}
+.x{background:var(--paper);color:var(--ink);border:3px solid var(--paper);font-family:var(--f-disp);font-size:22px;width:40px;height:40px;cursor:pointer}
+.mhero{position:relative;overflow:hidden;padding:44px 26px 34px;border-bottom:5px solid var(--ink);min-height:240px}
+.mhero > .pat{inset:0;opacity:.12;-webkit-mask:linear-gradient(90deg,transparent 20%,#000);mask:linear-gradient(90deg,transparent 20%,#000)}
+.mhero > .cr{position:absolute;z-index:1;right:18px;top:50%;width:200px;height:200px;margin-top:-100px}
+.mhero h2{position:relative;z-index:2;font-family:var(--f-disp);font-weight:400;font-size:clamp(48px,7.5vw,84px);line-height:1;letter-spacing:1px;max-width:calc(100% - 200px)}
+.mhero p{position:relative;z-index:2;max-width:520px;margin-top:14px;color:var(--paper);padding:10px 14px;font-weight:600}
+.mbody{padding:24px 26px 0;display:grid;gap:18px}
+.blk{border:4px solid var(--ink);padding:18px 20px;position:relative}
+.blk.ink{color:var(--paper)}
+.blk h4{font-family:var(--f-disp);font-weight:400;font-size:28px;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:10px;text-transform:uppercase}
+.blk h4 em{font-style:normal;font-family:var(--f-jp);font-size:13px;background:var(--ink);color:var(--paper);padding:2px 8px}
+.blk.ink h4 em{background:var(--paper);color:var(--ink)}
+.blk ul{padding-left:20px} .blk li{margin-bottom:6px}
+.blk p + p{margin-top:8px}
+.f{font-family:var(--f-mono);font-weight:700;background:var(--ink);color:var(--paper);padding:12px 14px;margin:10px 0;font-size:15px}
+.blk.ink .f{background:var(--paper);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.draft{font-family:var(--f-mono);font-size:12px;background:var(--paper);color:var(--ink);border:2px dashed var(--paper);padding:2px 6px;display:inline-block;margin-top:8px}
+#modal.on .mbody > *{animation:slash .55s var(--ease) backwards}
+#modal.on .mbody > :nth-child(2){animation-delay:.08s}#modal.on .mbody > :nth-child(3){animation-delay:.16s}
+#modal.on .mbody > :nth-child(4){animation-delay:.24s}#modal.on .mbody > :nth-child(5){animation-delay:.32s}
+#modal.on .mbody > :nth-child(6){animation-delay:.4s}
+#modal.on .mhero > .cr svg{animation:spinin .9s var(--pop) backwards}
+.flow{display:grid;margin-top:6px}
+.node{border:4px solid var(--ink);background:var(--paper);padding:10px 14px;font-weight:600;display:flex;gap:12px;align-items:center}
+.node b{font-family:var(--f-disp);font-weight:400;font-size:20px;color:var(--paper);min-width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+.node.hot{color:var(--paper);border-color:transparent} .node.hot b{color:var(--ink)} .node.hot b::before{background:var(--paper)}
+.link{height:30px;width:6px;background:var(--ink);margin-left:30px;transform-origin:top;filter:url(#brush)}
+#modal.on .flow > *{animation:rise .45s var(--ease) backwards;animation-delay:calc(.35s + var(--i)*.16s)}
+#modal.on .flow .link{animation:grow .3s var(--ease) backwards;animation-delay:calc(.35s + var(--i)*.16s)}
+.bars{display:grid;gap:12px;margin:12px 0}
+.bar-row span{font-family:var(--f-mono);font-weight:700;font-size:13px;display:block;margin-bottom:4px}
+.track{border:3px solid var(--paper);height:38px;position:relative}
+.fill{height:100%;background:var(--paper);width:var(--w);transform-origin:left;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-family:var(--f-disp);font-size:22px;color:var(--ink)}
+.fill.t{background:var(--sei-paper);background-size:40px 20px;color:var(--paper);border-right:4px solid var(--paper)}
+.fill.t i{background:var(--ink);padding:0 6px;font-style:normal}
+#modal.on .fill{animation:wipe 1s var(--ease) .7s backwards}
+.cast{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.who{border:4px solid var(--ink);display:flex;flex-direction:column}
+.who .face{position:relative;height:160px;background:var(--ink);overflow:hidden;display:flex;align-items:flex-end;padding:10px}
+.who .face > .pat{inset:0;opacity:.2}
+.who .face > .cr{position:absolute;right:-16px;top:-16px;width:130px;height:130px}
+.who .face b{position:relative;z-index:2;font-family:var(--f-disp);font-weight:400;font-size:26px;letter-spacing:1px;background:var(--paper);color:var(--ink);padding:2px 8px;line-height:1.1}
+.who dl{padding:12px 14px;font-size:15px}
+.who dt{font-family:var(--f-mono);font-weight:700;font-size:11px;text-transform:uppercase;color:var(--paper);display:inline-block;padding:1px 6px;margin-top:8px}
+.who dd{margin-top:4px}
+
+/* ---------- END ---------- */
+.end{position:relative;overflow:hidden;text-align:center;padding:110px 16px 120px;border-bottom:6px solid var(--ink)}
+.end > .enso{left:50%;top:50%;width:min(620px,110vw);height:min(620px,110vw);margin:calc(min(620px,110vw) / -2) 0 0 calc(min(620px,110vw) / -2);opacity:.9}
+.end > *{position:relative;z-index:2}
+.end h2{font-family:var(--f-disp);font-weight:400;font-size:clamp(56px,10vw,128px);line-height:1;letter-spacing:2px;background:var(--paper);display:inline-block;padding:6px 18px}
+.end p{margin:20px auto 30px;max-width:520px;font-size:18px;font-weight:600;background:var(--paper);display:inline-block;padding:4px 12px}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn{font-family:var(--f-disp);font-size:20px;letter-spacing:1px;color:var(--paper);padding:10px 22px;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translate(-3px,-3px) rotate(-1deg)}
+.play > .enso path{animation:draw 1.6s var(--ease) backwards}
+footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-weight:700;font-size:13px;text-align:center;padding:18px}
+
+/* ---------- KEYFRAMES ---------- */
+@keyframes ink{0%{opacity:0;transform:translateY(-50px) rotate(calc(var(--r,0deg) * 5 + 14deg)) scale(1.5)}}
+@keyframes stamp{0%{opacity:0;transform:rotate(-12deg) scale(2.4)}}
+@keyframes stampSfx{0%{opacity:0;transform:rotate(-30deg) scale(3)}}
+@keyframes rise{0%{opacity:0;transform:translateY(24px)}}
+@keyframes pop{0%{opacity:0;transform:scale(.5)}}
+@keyframes spinin{0%{opacity:0;transform:rotate(-160deg) scale(.4)}}
+@keyframes slash{0%{opacity:0;clip-path:polygon(0 0,0 0,-20% 100%,-20% 100%)}100%{clip-path:polygon(0 0,120% 0,100% 100%,-20% 100%)}}
+@keyframes wipe{0%{transform:scaleX(0)}}
+@keyframes grow{0%{transform:scaleY(0)}}
+@keyframes draw{0%{stroke-dashoffset:var(--len)}}
+@keyframes shake{0%,100%{translate:0 0}25%{translate:-6px 3px}50%{translate:5px -4px}75%{translate:-3px 2px}}
+@keyframes opout{to{clip-path:polygon(0 0,100% 0,100% 0,0 0)}}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-30px,20px)}50%{transform:translate(20px,-40px)}75%{transform:translate(-10px,30px)}100%{transform:translate(0,0)}}
+@keyframes scr{0%{left:18%;opacity:.28}6%{opacity:0}31%{left:71%;opacity:.22}35%{opacity:0}58%{left:43%;opacity:.3}61%{opacity:0}83%{left:88%;opacity:.2}86%{opacity:0}}
+@keyframes dust{0%{left:22%;top:30%;opacity:.5}3%{opacity:0}27%{left:76%;top:64%;opacity:.45}30%{opacity:0}55%{left:9%;top:82%;opacity:.5}58%{opacity:0}80%{left:58%;top:12%;opacity:.4}83%{opacity:0}}
+@keyframes flick{0%{opacity:0}11%{opacity:.045}12%{opacity:0}46%{opacity:.03}47%{opacity:0}48%{opacity:.05}49%{opacity:0}79%{opacity:.035}80%{opacity:0}}
+
+@media (max-width:820px){
+  .two,.cast{grid-template-columns:1fr}
+  .name{white-space:normal}
+  .cover{grid-template-columns:40px 1fr}
+  .spine b{font-size:18px} .spine small{font-size:12px}
+  #vols{padding-left:76px} #vols::before,#vols::after{left:26px} .nib{left:15px}
+  .badge{left:-76px;width:64px} .badge .cr{width:64px;height:64px} .yr{font-size:16px}
+  .s4,.s3,.s2{grid-column:span 6}
+  .p.sk{transform:none} .p.sk > *{transform:none}
+  .title{padding-right:18px}
+  .stamp{position:relative!important;right:auto;top:auto;align-items:flex-start;margin-bottom:12px;flex-direction:row;flex-wrap:wrap}
+  .stamp b{font-size:22px}
+  .sfx{right:4px}
+  .mhero > .cr{width:120px;height:120px;margin-top:-60px;opacity:.5}
+  .mhero h2{max-width:none}
+  .nav a{margin-left:10px;font-size:11px}
+  .logo{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,::before,::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .film{display:none}
+}
+</style>
+</head>
+<body>
+<svg class="fx" aria-hidden="true"><defs>
+  <filter id="brush" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="3" result="n1"/>
+    <feDisplacementMap in="SourceGraphic" in2="n1" scale="6" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.011 0.55" numOctaves="2" seed="8" result="n2"/>
+    <feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  12 0 0 0 -3.3" result="holes"/>
+    <feComposite in="rough" in2="holes" operator="in"/>
+  </filter>
+  <filter id="brush2" x="-8%" y="-8%" width="116%" height="116%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="21" result="n1"/>
+    <feDisplacementMap in="SourceGraphic" in2="n1" scale="5" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.008 0.45" numOctaves="2" seed="34" result="n2"/>
+    <feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  12 0 0 0 -3.2" result="holes"/>
+    <feComposite in="rough" in2="holes" operator="in"/>
+  </filter>
+  <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="5" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="brush3" x="-6%" y="-6%" width="112%" height="112%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="21" result="n1"/>
+    <feDisplacementMap in="SourceGraphic" in2="n1" scale="5" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.35" numOctaves="2" seed="34" result="n2"/>
+    <feColorMatrix in="n2" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  16 0 0 0 -3.9" result="holes"/>
+    <feComposite in="rough" in2="holes" operator="in"/>
+  </filter>
+  <filter id="edge" x="-6%" y="-10%" width="112%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="9" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</defs></svg>
+<div class="film" aria-hidden="true"><i class="grain"></i><i class="scr"></i><i class="scr b"></i><i class="dust"></i><i class="dust b"></i><i class="flick"></i></div>
+
+<!-- ===================== OPENING (built by script, about 3.9s, once per visit) ===================== -->
+<div id="op" aria-hidden="true"></div>
+
+<nav class="nav"><div class="wrap">
+  <div class="logo">S. S. RAWAT</div>
+  <div><a href="#volumes">Volumes</a><a href="#vault">Inside My Head</a><a href="#end">Contact</a></div>
+</div></nav>
+
+<!-- ===================== COVER ===================== -->
+<div class="wrap">
+<header class="cover" id="cover">
+  <div class="spine"><b>VOL. 01</b><small>ベンガルール · 2026</small></div>
+  <div class="cv">
+    <div class="enso"></div><div class="pat kik"></div>
+    <span class="issue">ISSUE NO. 01</span>
+    <!-- top strip slot reserved: copy to come -->
+    <h1 class="name" aria-label="Siddhant Singh Rawat"><span data-split>SIDDHANT SINGH RAWAT</span></h1>
+    <div class="name-rule"></div>
+    <div class="cv-grid">
+      <p class="narr">From school quizzes to furniture trade fairs to crypto sports trading, I've done one thing everywhere: get people from first hello to coming back for more. At DG3 I nearly doubled new-user activation, looked after whales who traded $8M+, and built an esports pricing model that called 68% right.</p>
+    </div>
+    <div class="roles">
+      <span style="--i:0"><i>CUSTOMER SUCCESS</i></span>
+      <span style="--i:1"><i>GROWTH</i></span>
+      <span style="--i:2"><i>ACTIVATION</i></span>
+      <span style="--i:3"><i>KEY ACCOUNTS</i></span>
+    </div>
+  </div>
+</header>
+</div>
+
+<!-- ===================== VOLUMES ===================== -->
+<section class="wrap" id="volumes">
+  <div class="head reveal"><h2>VOLUMES</h2><span class="kick">これまでの物語</span></div>
+  <div id="vols">
+    <div class="nib" aria-hidden="true"></div>
+
+    <!-- VOL 1 -->
+    <article class="vol" data-year="2016">
+      <div class="badge"><div class="cr" data-crest="kikko" data-k="一"></div><b class="yr">2016</b></div>
+      <div class="page">
+        <div class="p s4 title"><div class="pat kik"></div><div class="stamp"><b>2016</b><i>第一巻</i></div><span class="chap">The Quizmaster</span><h3>St. Xavier's Senior Secondary School, Jaipur</h3></div>
+        <div class="p s2 ink stat"><div class="pat sei-l"></div><b>VP</b><span>Literature Club</span></div>
+        <div class="p s3"><ul><li>Vice president of the literature club</li><li>Hosted literature quizzes as part of the organising committee</li></ul></div>
+        <div class="p s3 sk"><h4>Off the stage</h4><p>District-level basketball player.</p></div>
+      </div>
+    </article>
+
+    <!-- VOL 2 -->
+    <article class="vol" data-year="2020">
+      <div class="badge"><div class="cr" data-crest="ring" data-k="二"></div><b class="yr">2020</b></div>
+      <div class="page">
+        <div class="p s6 title"><div class="pat kik"></div><div class="stamp"><b>2016 / 2020</b><i>第二巻</i></div><span class="chap">Laces Untied</span><h3>Manipal Institute of Technology (MAHE)</h3><span class="meta">B.Tech Mechatronics · 2016 to 2020</span></div>
+        <div class="p s4"><h4>Untied Laces</h4><p>Part of the organisation behind cultural events across campus. We brought in stand-up comics including Daniel Fernandes and Sumit Anand, and ran open mics so students could show talent beyond academics.</p></div>
+        <div class="p s2 bubp"><div class="pat sei"></div><div class="bub">Talent outside the classroom needs a stage too.</div></div>
+        <div class="p s3 sk"><h4>Ed Board</h4><p>Writer for the college yearbook.</p></div>
+        <div class="p s3 ink"><span class="cap">Side quest</span><p>Under 25's Manipal event, 2020. Worked on the ticket sales team.</p></div>
+      </div>
+    </article>
+
+    <!-- VOL 3 -->
+    <article class="vol" data-year="2020">
+      <div class="badge"><div class="cr" data-crest="shippo" data-k="三"></div><b class="yr">2020</b></div>
+      <div class="page">
+        <div class="p s4 title"><div class="pat kik"></div><div class="stamp"><b>2020</b><i>第三巻</i></div><span class="chap">The Matchmaker</span><h3>Able Jobs (YC)</h3><span class="meta">Operations Intern</span></div>
+        <div class="p s2 ink stat"><div class="pat sei-l"></div><b>YC</b><span>Backed hiring startup</span></div>
+        <div class="p s6"><p>Able Jobs helps companies hire early-career talent. I worked the whole match, from database to joining day, for partner companies including Verzeo, Pitstop and Byju's.</p></div>
+        <div class="p s2 sk"><h4>Source</h4><p>Scouted the database for candidates who fit each opening.</p></div>
+        <div class="p s2"><h4>Coach</h4><p>Two to three days of training per candidate: interview etiquette, role prep and walkthroughs of any tasks.</p></div>
+        <div class="p s2 sk"><h4>Schedule</h4><p>Matched recruiter availability with candidate slots, then followed up on who made the next round.</p></div>
+        <div class="p s6 ink"><p>Then saw selected candidates through to signed offer letters and their first day.</p></div>
+      </div>
+    </article>
+
+    <!-- VOL 4 -->
+    <article class="vol" data-year="2021">
+      <div class="badge"><div class="cr" data-crest="yatsu" data-k="四"></div><b class="yr">2021</b></div>
+      <div class="page">
+        <div class="p s6 title"><div class="pat kik"></div><div class="stamp"><b>2021 / 05</b><i>第四巻</i></div><span class="chap">The Trade Floor</span><h3>Yatrik Arts</h3><span class="meta">Assistant Merchant · May 2021 to Dec 2022</span></div>
+        <div class="p s3"><h4>On the floor</h4><p>Represented Yatrik Arts at IHGF Delhi Fair, dealing with international buyers from the Americas, Europe and the Middle East. Came away with leads including TJ Maxx.</p></div>
+        <div class="p s3 sk"><h4>Off the floor</h4><ul><li>Created catalogues for prospective buyers</li><li>Cold-emailed leads with the catalogues and set up meetings</li><li>Prepared samples for the fair</li></ul></div>
+        <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="3">0</b><span>containers on the first order</span></div>
+        <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="9000" data-pre="€">€0</b><span>first order value</span></div>
+        <div class="sfx">ザワザワ</div>
+      </div>
+    </article>
+
+    <!-- VOL 5 -->
+    <article class="vol" data-year="2023">
+      <div class="badge"><div class="cr" data-crest="kikko" data-k="五"></div><b class="yr">2023</b></div>
+      <div class="page">
+        <div class="p s6 title"><div class="pat kik"></div><div class="stamp"><b>2023 / 04</b><i>第五巻</i></div><span class="chap">Lost &amp; Found</span><h3>Dahlia Technologies</h3><span class="meta">Apr 2023 to Jan 2025</span></div>
+        <div class="ch"><b>CH. 1</b><span>Marketing Executive · Apr 2023 to Mar 2024</span></div>
+        <div class="p s3"><h4>Social and web</h4><p>Ran social media. Revamped the My Ticket Solutions product website with the graphic designer, from templates to the look and feel.</p></div>
+        <div class="p s3 sk"><h4>Onboarding, compressed</h4><p>Made onboarding videos in Synthesia covering company structure, products, partners and the founding team.</p></div>
+        <div class="p s2 ink stat"><div class="pat sei-l"></div><b data-count="2" data-pre="5→" data-suf=" days">5→ days</b><span>new-hire onboarding</span></div>
+        <div class="p s4"><h4>Breakbulk Middle East and Netherlands</h4><p>Planned the social posts for the attending team ahead of the event, and the full stall: layout, printed wall and collateral, executed by the designer and delivered on schedule.</p></div>
+        <div class="ch"><b>CH. 2</b><span>Product Manager · Apr 2024 to Jan 2025</span></div>
+        <div class="p s4"><h4>My-BagTags</h4><p>An NFC and QR luggage tag with a companion app. Lose your bag, and whoever finds it scans the tag to reach you. Defined requirements and wireframes with 10+ stakeholders.</p></div>
+        <div class="p s2 bubp"><div class="pat sei"></div><div class="bub">Found a bag? Scan it.</div></div>
+        <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="1500">0</b><span>units through production, 2 weeks early</span></div>
+        <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="30" data-suf="%">0%</b><span>lower material cost</span></div>
+      </div>
+    </article>
+
+    <!-- VOL 6 -->
+    <article class="vol" data-year="2025">
+      <div class="badge"><div class="cr" data-crest="ring" data-k="六"></div><b class="yr">2025</b></div>
+      <div class="page">
+        <div class="p s6 title"><div class="pat kik"></div><div class="stamp"><b>2025 / 02</b><i>第六巻</i></div><span class="chap">The Big Leagues</span><h3>Barter Technologies / DG3</h3><span class="meta">Customer Success and Growth · Feb 2025 to now</span></div>
+        <div class="p s6"><p>DG3 Sportsbook, a crypto sports trading platform, and DG3 Prediction Market Terminal, built on Polymarket. Started in growth, grew into customer success, then activation, then the terminal launch.</p></div>
+
+        <div class="ch"><b>CH. 1</b><span>Growth · From Feb 2025</span></div>
+        <div class="p s4"><p>Ran 44 X campaigns targeting followers of 15+ competitors, then took over the main X handle from June to November 2025. One campaign alone brought in $32K in volume.</p></div>
+        <div class="p s2 ink stat"><div class="pat sei-l"></div><b data-count="376">0</b><span>users onboarded from 33K cold leads</span></div>
+        <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="3.5" data-dec="1" data-suf="M">0M</b><span>impressions on the main handle</span></div>
+        <div class="p s3 bubp"><div class="pat sei"></div><div class="bub">Cold DMs, warm traders.</div></div>
+
+        <div class="ch"><b>CH. 2</b><span>Customer Success and Key Accounts · From Jun 2025</span></div>
+        <div class="p s4 sk"><p>Handling early support tickets well turned into owning customer success. Ran monthly voice-of-the-customer reviews with the CEO. Pushed provider switches with engineering that cut deposit and withdrawal issues from 2 a week to 2 a month, and transaction failures to zero.</p></div>
+        <div class="p s2 ink stat"><div class="pat sei-l"></div><b data-count="600" data-suf="+">0+</b><span>issues owned, 90%+ resolved</span></div>
+        <div class="p s6 ink stat"><div class="pat sei-l"></div><b data-count="8" data-pre="$" data-suf="M+">$0M+</b><span>traded by the whales I looked after: the 5 accounts behind nearly 80% of the sportsbook's lifetime volume</span></div>
+
+        <div class="ch"><b>CH. 3</b><span>Activation · From Mar 2026</span></div>
+        <div class="p s4"><h4>The leak</h4><p>Took over new-user activation and found a leak: a segmentation oversight in our CRM was quietly dropping 40% of new users out of onboarding. Plugged it and rebuilt the lifecycle email journeys.</p></div>
+        <div class="p s2 ink stat"><div class="pat sei-l"></div><b data-count="59" data-pre="31→" data-suf="%">31→%</b><span>signup-to-active in 2 months</span></div>
+
+        <div class="ch"><b>CH. 4</b><span>DG3 Terminal launch · 2026</span></div>
+        <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="2" data-pre="$" data-suf="M+">$0M+</b><span>volume from cross-selling our biggest whale onto the terminal</span></div>
+        <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="550" data-suf="K+">0K+</b><span>impressions in 11 weeks on DG3 Esports, at 1.5% engagement</span></div>
+        <div class="p s6"><p>Launched DG3 Esports on X, built Esports Signals (see Inside My Head), and built the waitlist signup flow myself: a Supabase webhook sends an HTML email through Resend, confirming 550+ signups.</p></div>
+        <div class="sfx">ドン</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== INSIDE MY HEAD ===================== -->
+<section class="vault" id="vault">
+  <div class="pat sei-l"></div><div class="enso" data-c="paper"></div>
+  <div class="wrap reveal">
+    <div class="cut" data-cut="INSIDE MY HEAD"></div>
+    <p class="lede">The thinking a one-page CV has no room for. Open a chapter.</p>
+    <div class="grid">
+      <button class="card" data-m="m-contests"><div class="pat sei"></div>
+        <div class="tag"><span>Special chapter 1</span><span>Contests</span></div><div class="cr" data-crest="yatsu" data-k="組"></div>
+        <h3><span>THE SYNDICATE</span></h3>
+        <p>Launch contests for DG3 that turned trading volume into a crime family hierarchy.</p>
+        <span class="open">OPEN ▸</span></button>
+      <button class="card" data-m="m-signals"><div class="pat sei"></div>
+        <div class="tag"><span>Special chapter 2</span><span>Models</span></div><div class="cr" data-crest="ring" data-k="読"></div>
+        <h3><span>ESPORTS SIGNALS</span></h3>
+        <p>A pricing model that hunts for markets the crowd has priced wrong.</p>
+        <span class="open">OPEN ▸</span></button>
+      <button class="card" data-m="m-cast"><div class="pat sei"></div>
+        <div class="tag"><span>Special chapter 3</span><span>Characters</span></div><div class="cr" data-crest="shippo" data-k="声"></div>
+        <h3><span>THREE VOICES, ONE GUY</span></h3>
+        <p>The community voice, the inside guy and the brand account.</p>
+        <span class="open">OPEN ▸</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MODAL CONTENT ===================== -->
+<template id="m-contests">
+  <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="yatsu" data-k="組"></div><h2>THE SYNDICATE</h2><p>Launch contests for DG3 Prediction Market Terminal, planned so new users had a reason to trade from day one.</p></div>
+  <div class="mbody">
+    <div class="blk"><h4><em>一</em>The goal</h4><ul>
+      <li>DG3 is a prediction market terminal built on Polymarket's liquidity. The job was to drive trading activity, specifically volume.</li>
+      <li>Reward traders for doing more volume, so it becomes a self-sustaining loop: trade, get paid, trade again.</li>
+      <li>Most prediction markets offer traders very little in the way of incentives. A real monetary reward is a reason to make us their default platform.</li></ul></div>
+    <div class="blk ink"><h4><em>二</em>The theme</h4>
+      <p>A contest with personality, so it feels like more than a cash grab. You are a hedge fund, or a crime family syndicate: business is cutthroat and everyone operates in a hierarchy.</p>
+      <p>Traders doing different levels of volume sit at different levels of that hierarchy. Pop culture does the persuading; the maths does the paying.</p></div>
+    <div class="two">
+      <div class="blk"><h4><em>三</em>Epoch</h4><p>A fund-based syndicate contest. Traders band together and score as a crew.</p>
+        <div class="f">Daily Score = (Volume / 1000) × (1 + Realised PnL%)</div></div>
+      <div class="blk"><h4><em>三</em>Milestone Index</h4><p>Daily points from profit and volume, unlocking seven reward tiers from $250 to $2,500.</p>
+        <div class="f">Daily Points = (PnL Points × 0.3) + (Volume Points × 0.7)</div>
+        <p>PnL points capped at 4, so low-volume, high-PnL farming doesn't pay.</p></div>
+    </div>
+    <div class="blk"><h4><em>四</em>What we expected</h4><p>Traders chasing the next rung of the hierarchy, doing more volume to climb it, and staying because the platform pays them back for it.</p></div>
+    <div class="blk ink"><h4><em>五</em>What we shipped</h4><p>We went with rebates: seven volume milestones, each unlocking a share of the rewards.</p></div>
+  </div>
+</template>
+
+<template id="m-signals">
+  <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="ring" data-k="読"></div><h2>ESPORTS SIGNALS</h2><p>An AI-assisted model that scans esports markets on Polymarket for mispricing and wrong sentiment, then posts the call.</p></div>
+  <div class="mbody">
+    <div class="blk"><h4><em>一</em>The goal</h4><p>Scan the whole market and find opportunities: prices that are wrong, and sentiment that doesn't match the data. The aim isn't only to find markets that win, but to find them at a price that makes winning worth it.</p></div>
+    <div class="blk"><h4><em>二</em>How it works</h4>
+      <div class="flow">
+        <div class="node" style="--i:0"><b>1</b>Pull open esports markets from Polymarket</div><div class="link" style="--i:0"></div>
+        <div class="node" style="--i:1"><b>2</b>Feed in match data: grid.gg and bo3.gg (CS2), VLR.gg (Valorant), OpenDota, Leaguepedia</div><div class="link" style="--i:1"></div>
+        <div class="node" style="--i:2"><b>3</b>Model a fair price for each outcome</div><div class="link" style="--i:2"></div>
+        <div class="node" style="--i:3"><b>4</b>Compare the fair price with the market price</div><div class="link" style="--i:3"></div>
+        <div class="node hot" style="--i:4"><b>5</b>Gap worth taking? Post the call on X</div>
+      </div></div>
+    <div class="blk ink"><h4><em>三</em>One call: 9z vs FURIA</h4>
+      <p>The market gave 9z almost no chance of taking a map. Our data on both teams said otherwise.</p>
+      <div class="bars">
+        <div class="bar-row"><span>MARKET PRICE · 9z to take a map</span><div class="track"><div class="fill t" style="--w:33%"><i>33¢</i></div></div></div>
+        <div class="bar-row"><span>MODEL FAIR VALUE</span><div class="track"><div class="fill" style="--w:68%">68%</div></div></div>
+      </div>
+      <p>9z took map one, then lost the series 2-1. Right on the map, right on the spread, and bought at a price worth buying.</p>
+</div>
+    <div class="two">
+      <div class="blk ink stat" style="min-height:0"><b data-count="229">229</b><span>calls made</span></div>
+      <div class="blk ink stat" style="min-height:0"><b>68% · 17%</b><span>correct · return</span></div>
+    </div>
+  </div>
+</template>
+
+<template id="m-cast">
+  <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="shippo" data-k="声"></div><h2>THREE VOICES, ONE GUY</h2><p>The same person, tuned to whoever is on the other end: a $10 first-timer, a whale with a stuck withdrawal, or the timeline.</p></div>
+  <div class="mbody">
+    <div class="cast">
+      <div class="who"><div class="face"><div class="pat sei-l"></div><div class="cr" data-crest="ring" data-k="遊" data-dark></div><b>TWOHNEPIXEL</b></div><dl>
+        <dt>Role</dt><dd>The community voice of DG3</dd>
+        <dt>Into</dt><dd>Pop culture, crypto, esports</dd>
+        <dt>Voice</dt><dd>Casual, knows his stuff, gets things done</dd>
+        <dt>Signature</dt><dd>Helps a whale and a $10 new signup with the same energy</dd></dl></div>
+      <div class="who"><div class="face"><div class="pat sei-l"></div><div class="cr" data-crest="kikko" data-k="守" data-dark></div><b>THE INSIDE GUY</b></div><dl>
+        <dt>Role</dt><dd>Customer success: the official point of contact</dd>
+        <dt>Voice</dt><dd>Calm, clear, on your side</dd>
+        <dt>Edge</dt><dd>Understands how our tech works below the surface, so problems get understood, not just logged</dd>
+        <dt>Signature</dt><dd>You bring the problem, he takes it to tech, it gets solved, the worry goes away</dd></dl></div>
+      <div class="who"><div class="face"><div class="pat sei-l"></div><div class="cr" data-crest="yatsu" data-k="旗" data-dark></div><b>DG3 ESPORTS</b></div><dl>
+        <dt>Role</dt><dd>The brand account</dd>
+        <dt>Voice</dt><dd>A little formal, because it's a business</dd>
+        <dt>Edge</dt><dd>Still drops an unhinged take when the moment calls for it</dd>
+        <dt>Signature</dt><dd>Signals, slates and results</dd></dl></div>
+    </div>
+  </div>
+</template>
+
+<div id="modal" role="dialog" aria-modal="true" aria-label="Chapter">
+  <div class="sheet"><div class="bar"><b>INSIDE MY HEAD</b><button class="x" aria-label="Close">×</button></div><div id="mcontent"></div></div>
+</div>
+
+<!-- ===================== END ===================== -->
+<section class="end reveal" id="end">
+  <div class="enso"></div>
+  <h2>TO BE CONTINUED...</h2>
+  <p>The next volume needs a publisher. Let's talk.</p>
+  <div class="btns">
+    <a class="btn" href="mailto:siddhantsrawat@gmail.com">EMAIL</a>
+    <a class="btn" href="tel:+919636690640">+91 96366 90640</a>
+    <a class="btn" href="https://linkedin.com/in/siddhantsrawat" target="_blank" rel="noopener">LINKEDIN</a>
+    <a class="btn" href="https://x.com/Siddhantsrawat" target="_blank" rel="noopener">X</a>
+  </div>
+</section>
+<footer>© 2026 Siddhant Singh Rawat · Bengaluru</footer>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function store(k, v){ try{ if(v) sessionStorage.setItem(k, v); return sessionStorage.getItem(k); }catch(e){ return null; } }
+  var INK = '#0A0A0A', PAPER = '#F5F2E8', G1 = '#BDB9AF', G2 = '#8B887F';
+
+  /* ---------- crests: original, built from traditional kamon geometry ---------- */
+  function poly(n, r, rot){ var p = []; for(var i = 0; i < n; i++){ var a = (Math.PI * 2 * i / n) + (rot || 0); p.push((r * Math.cos(a)).toFixed(1) + ',' + (r * Math.sin(a)).toFixed(1)); } return p.join(' '); }
+  function crest(type, k, dark){
+    var bg = dark ? '#3A3833' : G1, mid = dark ? PAPER : INK, core = dark ? INK : PAPER, txt = dark ? PAPER : INK, s = '';
+    if(type === 'kikko'){
+      s += '<polygon points="' + poly(6, 98, Math.PI / 6) + '" fill="' + bg + '"/>';
+      for(var i = 0; i < 6; i++){ var a = Math.PI / 3 * i + Math.PI / 6; s += '<circle cx="' + (88 * Math.cos(a)).toFixed(1) + '" cy="' + (88 * Math.sin(a)).toFixed(1) + '" r="5" fill="' + core + '"/>'; }
+      s += '<polygon points="' + poly(6, 78, Math.PI / 6) + '" fill="' + mid + '"/>';
+      s += '<circle r="54" fill="' + core + '"/>';
+    } else if(type === 'ring'){
+      s += '<circle r="98" fill="' + bg + '"/>';
+      for(var j = 0; j < 16; j++){ s += '<rect x="-3" y="-96" width="6" height="16" fill="' + core + '" transform="rotate(' + (j * 22.5) + ')"/>'; }
+      s += '<circle r="76" fill="' + mid + '"/><circle r="66" fill="none" stroke="' + core + '" stroke-width="3"/><circle r="54" fill="' + core + '"/>';
+    } else if(type === 'shippo'){
+      [[0,-44],[44,0],[0,44],[-44,0]].forEach(function(c){ s += '<circle cx="' + c[0] + '" cy="' + c[1] + '" r="52" fill="' + bg + '" stroke="' + mid + '" stroke-width="4"/>'; });
+      s += '<circle r="66" fill="' + mid + '"/><circle r="52" fill="' + core + '"/>';
+    } else {
+      s += '<polygon points="' + poly(4, 98, 0) + '" fill="' + bg + '"/><polygon points="' + poly(4, 98, Math.PI / 4) + '" fill="' + bg + '"/>';
+      s += '<polygon points="' + poly(8, 80, Math.PI / 8) + '" fill="' + mid + '"/><circle r="56" fill="' + core + '"/>';
+    }
+    var t = '<text x="0" y="4" text-anchor="middle" dominant-baseline="central" font-family="Yuji Syuku, serif" font-weight="700" font-size="' + (k.length > 1 ? 44 : 74) + '" fill="' + txt + '" filter="url(#rough)">' + k + '</text>';
+    return '<svg viewBox="-104 -104 208 208" width="100%" height="100%" aria-hidden="true"><g filter="url(#brush)">' + s + '</g>' + t + '</svg>';
+  }
+  function paintCrests(root){ (root || document).querySelectorAll('.cr[data-crest]').forEach(function(el){ if(!el.firstChild) el.innerHTML = crest(el.dataset.crest, el.dataset.k || '', el.hasAttribute('data-dark')); }); }
+
+  /* ---------- ensō brush circles ---------- */
+  function paintEnso(){
+    document.querySelectorAll('.enso').forEach(function(el){
+      var c = el.dataset.c === 'paper' ? PAPER : INK;
+      el.innerHTML = '<svg viewBox="0 0 200 200" width="100%" height="100%"><g filter="url(#brush2)">' +
+        '<path d="M108 20 A80 80 0 1 1 52 40" stroke="' + c + '" stroke-width="15" style="--len:480;stroke-dasharray:480"/>' +
+        '<path d="M60 34 A82 82 0 0 1 96 20" stroke="' + c + '" stroke-width="6" style="--len:60;stroke-dasharray:60"/></g></svg>';
+    });
+  }
+  paintCrests(); paintEnso();
+
+  /* ---------- name split + fit ---------- */
+  document.querySelectorAll('[data-split]').forEach(function(el){
+    var t = el.textContent, i = 0; el.textContent = '';
+    t.split(' ').forEach(function(word, wi){
+      if(wi) el.appendChild(document.createTextNode(' '));
+      var wd = document.createElement('span'); wd.className = 'wd';
+      word.split('').forEach(function(ch){
+        var s = document.createElement('span'); s.className = 'l'; s.textContent = ch;
+        s.style.setProperty('--i', i); s.style.setProperty('--r', ((i % 3) - 1) * 2 + 'deg'); i++;
+        wd.appendChild(s);
+      });
+      el.appendChild(wd);
+    });
+  });
+  var nm = document.querySelector('.name');
+  function fitName(){
+    nm.style.fontSize = '';
+    if(innerWidth <= 820) return;
+    var base = parseFloat(getComputedStyle(nm).fontSize);
+    nm.style.fontSize = Math.min(150, base * nm.clientWidth / nm.scrollWidth * .99) + 'px';
+  }
+  fitName(); addEventListener('resize', fitName);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitName);
+
+  /* ---------- cut-paper header ---------- */
+  var seed = 11; function rnd(){ seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+  document.querySelectorAll('[data-cut]').forEach(function(box){
+    var n = 0;
+    box.dataset.cut.split(' ').forEach(function(word){
+      var w = document.createElement('span'); w.className = 'w';
+      word.split('').forEach(function(ch){
+        var c = document.createElement('span'); c.className = 'c'; c.textContent = ch;
+        var j = function(){ return Math.round(rnd() * 12); };
+        c.style.setProperty('--cp', 'polygon(' + j() + '% ' + j() + '%,' + (100 - j()) + '% ' + j() + '%,100% ' + (100 - j()) + '%,' + j() + '% 100%)');
+        c.style.setProperty('--r', (rnd() * 10 - 5).toFixed(1) + 'deg');
+        c.style.setProperty('--i', n++);
+        w.appendChild(c);
+      });
+      box.appendChild(w);
+    });
+  });
+
+  /* ---------- opening: six crests, about 3.9s, once per visit ---------- */
+  var op = document.getElementById('op'), cover = document.getElementById('cover');
+  var ROLES = ['CUSTOMER SUCCESS','KEY ACCOUNT MANAGEMENT','COMMUNITY ENGAGEMENT','SOCIAL MEDIA','OPERATIONS','GROWTH'];
+  var KANJI = ['一','二','三','四','五','六'], TYPES = ['kikko','ring','shippo','yatsu','kikko','ring'];
+  function startCover(){ cover.classList.add('go'); }
+  if(reduce || store('opSeen') === '1'){ op.remove(); startCover(); }
+  else {
+    document.body.classList.add('locked');
+    ROLES.forEach(function(r, i){
+      var s = document.createElement('div'); s.className = 'shot' + (i % 2 ? ' r' : '');
+      s.innerHTML = '<div class="pat ' + (i % 2 ? 'kik' : 'sei') + '"></div><div class="cr">' + crest(TYPES[i], KANJI[i]) + '</div>' +
+        '<div class="bars"><b>' + r + '</b><i>第' + KANJI[i] + '章 · 0' + (i + 1) + ' / 06</i></div>';
+      op.appendChild(s);
+    });
+    var shots = op.querySelectorAll('.shot'), STEP = 600;
+    shots.forEach(function(s, i){ setTimeout(function(){ s.classList.add('on'); }, 100 + i * STEP); });
+    setTimeout(function(){
+      op.classList.add('out'); startCover();
+      setTimeout(function(){ op.remove(); document.body.classList.remove('locked'); store('opSeen', '1'); }, 520);
+    }, 100 + shots.length * STEP + 150);
+  }
+
+  /* ---------- count-up ---------- */
+  function tween(dur, fn){ var t0 = null; function step(t){ if(!t0) t0 = t; var p = Math.min(1, (t - t0) / dur); fn(1 - Math.pow(1 - p, 3)); if(p < 1) requestAnimationFrame(step); } requestAnimationFrame(step); }
+  function fmt(el, v){ var dec = +(el.dataset.dec || 0); return (el.dataset.pre || '') + v.toLocaleString('en-GB', {minimumFractionDigits:dec, maximumFractionDigits:dec}) + (el.dataset.suf || ''); }
+  function countUp(el){
+    var to = parseFloat(el.dataset.count), pre = el.dataset.pre || '', from = pre.indexOf('→') > -1 ? parseFloat(pre) : 0;
+    tween(1400, function(e){ el.textContent = fmt(el, from + (to - from) * e); });
+  }
+
+  /* ---------- modal ---------- */
+  var modal = document.getElementById('modal'), mc = document.getElementById('mcontent'), lastBtn = null;
+  function openM(id, btn){
+    lastBtn = btn; mc.innerHTML = ''; mc.appendChild(document.getElementById(id).content.cloneNode(true)); paintCrests(mc);
+    modal.classList.remove('on'); void modal.offsetWidth; modal.classList.add('on'); modal.scrollTop = 0;
+    document.body.classList.add('locked'); modal.querySelector('.x').focus();
+  }
+  function closeM(){ modal.classList.remove('on'); document.body.classList.remove('locked'); if(lastBtn) lastBtn.focus(); }
+  document.querySelectorAll('.card').forEach(function(b){ b.addEventListener('click', function(){ openM(b.dataset.m, b); }); });
+  modal.querySelector('.x').addEventListener('click', closeM);
+  modal.addEventListener('click', function(e){ if(e.target === modal) closeM(); });
+  addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('on')) closeM(); });
+
+  var vols = document.getElementById('vols');
+  if(reduce || !('IntersectionObserver' in window)){
+    document.querySelectorAll('[data-count]').forEach(function(el){ el.textContent = fmt(el, parseFloat(el.dataset.count)); }); return;
+  }
+
+  /* ---------- rail ---------- */
+  var ticking = false; vols.style.setProperty('--p', 0);
+  function onScroll(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      var r = vols.getBoundingClientRect(), mid = innerHeight * .55;
+      vols.style.setProperty('--p', Math.min(1, Math.max(0, (mid - r.top) / r.height)).toFixed(4));
+      ticking = false;
+    });
+  }
+  addEventListener('scroll', onScroll, {passive:true}); addEventListener('resize', onScroll); onScroll();
+
+  /* ---------- reveals, year roll, count-ups ---------- */
+  var stops = [].slice.call(document.querySelectorAll('.vol'));
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(en){
+      if(!en.isIntersecting) return;
+      var el = en.target; el.classList.add('play');
+      var i = stops.indexOf(el);
+      if(i > 0){
+        var b = el.querySelector('.yr'), from = +stops[i - 1].dataset.year, to = +el.dataset.year;
+        if(from !== to) tween(700, function(e){ b.textContent = Math.round(from + (to - from) * e); });
+      }
+      el.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(el);
+    });
+  }, {rootMargin:'0px 0px -12% 0px'});
+  document.querySelectorAll('.vol, .reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
