@@ -4,6 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Siddhant Singh Rawat</title>
+<meta name="description" content="Customer success, growth and activation. The story so far, plus the thinking a one-page CV has no room for.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://siddhants-rawat.github.io/portfolio/">
+<meta property="og:title" content="Siddhant Singh Rawat: The Story So Far">
+<meta property="og:description" content="Customer success, growth and activation. Six volumes from Jaipur to DG3, plus the case files a CV has no room for.">
+<meta property="og:image" content="https://siddhants-rawat.github.io/portfolio/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Siddhant Singh Rawat: The Story So Far">
+<meta name="twitter:description" content="Customer success, growth and activation. Six volumes from Jaipur to DG3, plus the case files a CV has no room for.">
+<meta name="twitter:image" content="https://siddhants-rawat.github.io/portfolio/og.png">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&family=Courier+Prime:wght@700&family=Dela+Gothic+One&family=Yuji+Syuku&display=swap" rel="stylesheet">
@@ -369,6 +384,69 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
   .casebtn{font-size:16px}
 }
 
+/* ---------- v5: alignment, line charts, signals ---------- */
+.contact{justify-content:center}
+.contact .cvbtn,.btns .cvbtn{position:relative;isolation:isolate;background:transparent;border:0;color:var(--paper);font-size:17px;padding:8px 16px;line-height:inherit}
+.contact .cvbtn::before,.btns .cvbtn::before{content:"";position:absolute;inset:0;background:var(--ink);filter:url(#edge);z-index:-1}
+.hb{grid-template-columns:190px 1fr 64px}
+.hb span{line-height:1.25}
+.lines{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+.lc{border:3px solid var(--ink);padding:12px 12px 6px;position:relative}
+.lc .lab{font-family:var(--f-mono);font-weight:700;font-size:12px;text-transform:uppercase;display:block}
+.lc b{font-family:var(--f-disp);font-weight:400;font-size:40px;line-height:1.05;display:block}
+.lc svg{width:100%;height:120px;display:block;margin-top:4px}
+.lc .ln,.curve .ln{fill:none;stroke:var(--ink);stroke-width:4;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.lc .ar{fill:var(--ink);opacity:.12}
+.lc circle{fill:var(--ink)}
+.ax{display:flex;justify-content:space-between;font-family:var(--f-mono);font-weight:700;font-size:11px;text-transform:uppercase;margin-top:6px}
+.curve{position:relative;margin:12px 0 2px;border-left:3px solid var(--paper);border-bottom:3px solid var(--paper)}
+.curve svg{width:100%;height:200px;display:block}
+.curve .ln{stroke:var(--paper)}
+.curve .base{stroke:var(--paper);stroke-width:1;opacity:.4;vector-effect:non-scaling-stroke}
+.curve .mark{stroke:var(--paper);stroke-width:1.5;stroke-dasharray:4 4;vector-effect:non-scaling-stroke}
+.tag229{position:absolute;left:78.2%;top:6px;transform:translateX(-50%);font-family:var(--f-mono);font-weight:700;font-size:11px;background:var(--paper);color:var(--ink);padding:1px 6px}
+.trio.dark div{border-color:var(--paper)}
+.trio.dark b{color:var(--paper)}
+.srcgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.srcgrid div{border:3px solid var(--ink);padding:10px 12px}
+.srcgrid b{display:block;font-family:var(--f-disp);font-weight:400;font-size:22px}
+.srcgrid span{font-size:14px}
+.calls{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.calls div{border:3px solid var(--ink);padding:10px 12px}
+.calls span{display:block;font-family:var(--f-mono);font-weight:700;font-size:12px;text-transform:uppercase}
+.calls b{font-family:var(--f-disp);font-weight:400;font-size:40px;line-height:1.1;margin-right:8px}
+.calls em{font-style:normal;font-family:var(--f-disp);font-size:22px;background:var(--ink);color:var(--paper);padding:0 6px}
+.hbars.roi .hb.neg i{background:repeating-linear-gradient(-45deg,var(--ink) 0 4px,transparent 4px 8px);outline:2px solid var(--ink)}
+.sports{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
+.sports div{border:3px solid var(--paper);padding:10px 12px}
+.sports b{display:block;font-family:var(--f-disp);font-weight:400;font-size:38px;line-height:1}
+.sports span{font-size:14px;font-weight:600}
+@media (max-width:820px){
+  .hb{grid-template-columns:118px 1fr 50px}
+  .lines,.srcgrid,.calls,.sports{grid-template-columns:1fr 1fr}
+  .lc b{font-size:30px}
+  .lc svg{height:90px}
+  .curve svg{height:150px}
+  .calls b{font-size:30px}
+  .sports b{font-size:30px}
+}
+@media (max-width:420px){ .lines,.calls,.trio.dark{grid-template-columns:1fr} }
+
+/* ---------- v6: louder case file button ---------- */
+.casebtn{display:flex;align-items:center;gap:14px;width:100%;margin-top:14px;padding:10px 14px;text-align:left;background:transparent;color:var(--paper);border:0;box-shadow:none;position:relative;isolation:isolate}
+.casebtn::before{content:"";position:absolute;inset:0;background:var(--ink);filter:url(#edge);z-index:-1}
+.casebtn::after{content:"";position:absolute;inset:-6px;border:3px solid var(--ink);z-index:-2;animation:pulse 1.8s var(--ease) infinite}
+.casebtn .cb-k{font-family:var(--f-brush);font-size:30px;width:46px;height:46px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--paper);color:var(--ink)}
+.casebtn .cb-t{font-family:var(--f-disp);font-size:22px;letter-spacing:1px;line-height:1.05;text-transform:uppercase;flex:1}
+.casebtn .cb-t small{display:block;font-family:var(--f-mono);font-weight:700;font-size:11px;letter-spacing:2px;opacity:.85}
+.casebtn .cb-a{font-family:var(--f-disp);font-size:26px;transition:transform .2s var(--ease)}
+.casebtn:hover{transform:translate(-3px,-3px);box-shadow:none}
+.casebtn:hover .cb-a{transform:translateX(6px)}
+.casebtn:focus-visible{outline:3px dashed var(--ink);outline-offset:8px}
+.sub{font-family:var(--f-disp);font-weight:400;font-size:22px;letter-spacing:.5px;text-transform:uppercase;margin:16px 0 6px}
+@keyframes pulse{0%{opacity:.9;transform:scale(1)}70%{opacity:0;transform:scale(1.04)}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.casebtn::after{animation:none;opacity:.5}}
+
 /* ---------- phone refinements (desktop untouched) ---------- */
 @media (max-width:820px){
   body{font-size:16px}
@@ -485,7 +563,7 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
 <nav class="nav"><div class="wrap">
   <div class="logo">S. S. RAWAT</div>
   <div class="tabs" id="tabs"><a href="#origins">Origins</a><a href="#yatrik">Yatrik</a><a href="#dahlia">Dahlia</a><a href="#dg3">DG3</a><a href="#vault">Inside My Head</a><a href="#end">Contact</a></div>
-  <div class="cvwrap navcv"><button class="cvbtn" type="button" aria-expanded="false" aria-haspopup="true">CV ▾</button><div class="cvmenu" role="menu"><a role="menuitem" href="cv-customer-success.pdf" download="Siddhant_Rawat_CV_CSM.pdf">Customer Success CV</a><a role="menuitem" href="cv-growth.pdf" download="Siddhant_Rawat_CV_Growth.pdf">Growth CV</a></div></div>
+  <div class="cvwrap navcv"><button class="cvbtn" type="button" aria-expanded="false" aria-haspopup="true">CV ▾</button><div class="cvmenu" role="menu"><a role="menuitem" href="Siddhant_Rawat_CV_CSM.pdf" download>Customer Success CV</a><a role="menuitem" href="Siddhant_Rawat_CV_Growth.pdf" download>Growth CV</a></div></div>
 </div></nav>
 
 <!-- ===================== COVER ===================== -->
@@ -500,7 +578,7 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
     <div class="name-rule"></div>
     <div class="cv-grid">
       <p class="narr">From school quizzes to furniture trade fairs to crypto sports trading, I've done one thing everywhere: get people from first hello to coming back for more. At DG3 I nearly doubled new-user activation, looked after whales who traded $8M+, and built an esports pricing model that called 68% right.</p>
-      <div class="contact"><div class="cvwrap"><button class="cvbtn" type="button" aria-expanded="false" aria-haspopup="true">CV ▾</button><div class="cvmenu" role="menu"><a role="menuitem" href="cv-customer-success.pdf" download="Siddhant_Rawat_CV_CSM.pdf">Customer Success CV</a><a role="menuitem" href="cv-growth.pdf" download="Siddhant_Rawat_CV_Growth.pdf">Growth CV</a></div></div><a class="btn" href="mailto:siddhantsrawat@gmail.com">EMAIL</a><a class="btn" href="https://linkedin.com/in/siddhantsrawat" target="_blank" rel="noopener">LINKEDIN</a><a class="btn" href="https://x.com/Siddhantsrawat" target="_blank" rel="noopener">X</a><a class="btn" href="tel:+919636690640">+91 96366 90640</a></div>
+      <div class="contact"><div class="cvwrap"><button class="cvbtn" type="button" aria-expanded="false" aria-haspopup="true">CV ▾</button><div class="cvmenu" role="menu"><a role="menuitem" href="Siddhant_Rawat_CV_CSM.pdf" download>Customer Success CV</a><a role="menuitem" href="Siddhant_Rawat_CV_Growth.pdf" download>Growth CV</a></div></div><a class="btn" href="mailto:siddhantsrawat@gmail.com">EMAIL</a><a class="btn" href="https://linkedin.com/in/siddhantsrawat" target="_blank" rel="noopener">LINKEDIN</a><a class="btn" href="https://x.com/Siddhantsrawat" target="_blank" rel="noopener">X</a><a class="btn" href="tel:+919636690640">+91 96366 90640</a></div>
     </div>
     <div class="roles">
       <span style="--i:0"><i>CUSTOMER SUCCESS</i></span>
@@ -605,19 +683,19 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
         <div class="p s6 ink stat"><div class="pat sei-l"></div><b data-count="8" data-pre="$" data-suf="M+">$0M+</b><span>traded by the whales I looked after: the 5 accounts behind nearly 80% of the sportsbook's lifetime volume</span></div>
 
         <div class="ch"><b>CH. 3</b><span>Activation · From Mar 2026</span></div>
-        <div class="p s4"><h4>The leak</h4><p>Took over new-user activation and found a leak: a segmentation oversight in our CRM was quietly dropping 40% of new users out of onboarding. Plugged it and rebuilt the lifecycle email journeys.</p><button class="casebtn" type="button" data-m="m-leak">READ THE CASE FILE ▸</button></div>
+        <div class="p s4"><h4>The leak</h4><p>Took over new-user activation and found a leak: a segmentation oversight in our CRM was quietly dropping 40% of new users out of onboarding. Plugged it and rebuilt the lifecycle email journeys.</p><button class="casebtn" type="button" data-m="m-leak"><span class="cb-k">漏</span><span class="cb-t"><small>Case file</small>How I found the leak</span><span class="cb-a">▸</span></button></div>
         <div class="p s2 ink stat"><div class="pat sei-l"></div><b data-count="59" data-pre="31→" data-suf="%">31→%</b><span>signup-to-active in 2 months</span></div>
 
         <div class="ch"><b>CH. 4</b><span>DG3 Terminal launch · 2026</span></div>
         <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="2" data-pre="$" data-suf="M+">$0M+</b><span>volume from cross-selling our biggest whale onto the terminal</span></div>
         <div class="p s3 ink stat"><div class="pat sei-l"></div><b data-count="550" data-suf="K+">0K+</b><span>impressions in 11 weeks on DG3 Esports, at 1.5% engagement</span></div>
-        <div class="p s6 ramp"><h4>DG3 Esports: the first three weeks</h4>
-          <div class="hbars">
-            <div class="hb"><span>13 to 19 Jul</span><i style="--w:1.9%"></i><b>1,805</b><em>30 posts</em></div>
-            <div class="hb"><span>20 to 26 Jul</span><i style="--w:46.8%"></i><b>44,461</b><em>124 posts</em></div>
-            <div class="hb"><span>27 Jul to 2 Aug</span><i style="--w:100%"></i><b>95,021</b><em>92 posts</em></div>
+        <div class="p s6"><h4>The whale who went quiet</h4><p>The $2M+ came from one of our biggest traders, who hadn't placed a single trade since the terminal went live. It didn't come back through a campaign.</p><button class="casebtn" type="button" data-m="m-whale"><span class="cb-k">鯨</span><span class="cb-t"><small>Case file</small>How the whale came back</span><span class="cb-a">▸</span></button></div>
+        <div class="p s6 ramp"><h4>DG3 Esports: the account, built from zero</h4>
+          <div class="lines">
+            <div class="lc"><span class="lab">Total impressions</span><b>573,197</b><svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><path class="ar" d="M8.0,111.8 L31.7,104.3 L55.3,86.6 L79.0,81.2 L102.7,67.2 L126.3,60.3 L150.0,51.6 L173.7,47.3 L197.3,34.5 L221.0,28.9 L244.7,17.7 L268.3,8.3 L292.0,8.0 L292.0,112 L8.0,112 Z"/><path class="ln" d="M8.0,111.8 L31.7,104.3 L55.3,86.6 L79.0,81.2 L102.7,67.2 L126.3,60.3 L150.0,51.6 L173.7,47.3 L197.3,34.5 L221.0,28.9 L244.7,17.7 L268.3,8.3 L292.0,8.0"/><circle cx="8.0" cy="111.8" r="3.5"/><circle cx="31.7" cy="104.3" r="3.5"/><circle cx="55.3" cy="86.6" r="3.5"/><circle cx="79.0" cy="81.2" r="3.5"/><circle cx="102.7" cy="67.2" r="3.5"/><circle cx="126.3" cy="60.3" r="3.5"/><circle cx="150.0" cy="51.6" r="3.5"/><circle cx="173.7" cy="47.3" r="3.5"/><circle cx="197.3" cy="34.5" r="3.5"/><circle cx="221.0" cy="28.9" r="3.5"/><circle cx="244.7" cy="17.7" r="3.5"/><circle cx="268.3" cy="8.3" r="3.5"/><circle cx="292.0" cy="8.0" r="3.5"/></svg><div class="ax"><span>16 Jul</span><span>5 Oct</span></div></div>
+            <div class="lc"><span class="lab">Total profile visits</span><b>1,914</b><svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><path class="ar" d="M8.0,110.8 L31.7,102.0 L55.3,90.7 L79.0,79.7 L102.7,54.7 L126.3,42.3 L150.0,32.9 L173.7,29.7 L197.3,24.8 L221.0,20.0 L244.7,15.6 L268.3,9.0 L292.0,8.0 L292.0,112 L8.0,112 Z"/><path class="ln" d="M8.0,110.8 L31.7,102.0 L55.3,90.7 L79.0,79.7 L102.7,54.7 L126.3,42.3 L150.0,32.9 L173.7,29.7 L197.3,24.8 L221.0,20.0 L244.7,15.6 L268.3,9.0 L292.0,8.0"/><circle cx="8.0" cy="110.8" r="3.5"/><circle cx="31.7" cy="102.0" r="3.5"/><circle cx="55.3" cy="90.7" r="3.5"/><circle cx="79.0" cy="79.7" r="3.5"/><circle cx="102.7" cy="54.7" r="3.5"/><circle cx="126.3" cy="42.3" r="3.5"/><circle cx="150.0" cy="32.9" r="3.5"/><circle cx="173.7" cy="29.7" r="3.5"/><circle cx="197.3" cy="24.8" r="3.5"/><circle cx="221.0" cy="20.0" r="3.5"/><circle cx="244.7" cy="15.6" r="3.5"/><circle cx="268.3" cy="9.0" r="3.5"/><circle cx="292.0" cy="8.0" r="3.5"/></svg><div class="ax"><span>16 Jul</span><span>5 Oct</span></div></div>
           </div>
-          <p class="src">Impressions per week, from the X analytics export for posts published 16 July to 2 August 2026.</p></div>
+          <p class="src">Running weekly totals from the X account analytics export, launch on 16 July to 5 October 2026. Engagement rate across the period: 1.51%.</p></div>
         <div class="p s6"><p>Launched DG3 Esports on X, built Esports Signals (see Inside My Head), and built the waitlist signup flow myself: a Supabase webhook sends an HTML email through Resend, confirming 550+ signups.</p></div>
         <div class="sfx">ドン</div>
       </div>
@@ -699,6 +777,33 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
 </template>
 
 
+<template id="m-whale">
+  <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="ring" data-k="鯨"></div><h2>THE WHALE</h2><p>One of our biggest traders went silent. What brought him back wasn't an offer.</p></div>
+  <div class="mbody">
+    <div class="blk"><h4><em>一</em>The silence</h4>
+      <p>A trader who had been one of the sportsbook's biggest accounts hadn't placed a single trade on the new terminal since it went live. We checked in. The replies were short, when they came at all.</p></div>
+    <div class="blk ink"><h4><em>二</em>The message</h4>
+      <p>Then, one day, a message in our group chat. He was going through something serious and personal, the kind of thing that makes trading volume feel very small.</p>
+      <p>There's no script for that. And a group chat isn't the place for it.</p></div>
+    <div class="blk"><h4><em>三</em>The conversation</h4>
+      <p>I moved it to a private message and listened. Over the next few days I talked it through with him, and encouraged him to keep pushing until he got proper answers rather than settling for the first one.</p>
+      <p>It wasn't a sales conversation. He'd done a lot for us, and at that moment he needed someone in his corner more than he needed a rebate.</p></div>
+    <div class="blk ink"><h4><em>四</em>The turn</h4>
+      <p>He got the answers he needed, and the worst-case fear was ruled out. That was mid-July. Around 19 July, he started trading again: $100K to $200K a day on match days.</p>
+      <div class="hbars light">
+        <div class="hb"><span>Before mid-July</span><i style="--w:0.6%"></i><b>$0</b></div>
+        <div class="hb"><span>Last 10 days of July</span><i style="--w:45.7%"></i><b>$640K+</b></div>
+        <div class="hb"><span>First 15 days of August</span><i style="--w:100%"></i><b>$1.4M</b></div>
+      </div>
+      <p class="src">Volume traded on DG3 Prediction Market Terminal by one account.</p></div>
+    <div class="blk"><h4><em>五</em>How I knew it was the relationship</h4>
+      <p>Once his volume was flowing, he reached out on his own to ask how his trading could help the platform.  That question is the clearest sign of why he came back.</p></div>
+    <div class="blk ink"><h4><em>六</em>What I took from it</h4>
+      <p>Key accounts aren't accounts. The volume was the result, not the goal: it came back because someone treated the person behind the wallet as a person first.</p>
+      <div class="trio dark"><div><b>$640K+</b><span>in the last 10 days of July</span></div><div><b>$1.4M</b><span>in the first 15 days of August</span></div><div><b>$2M+</b><span>in under a month</span></div></div></div>
+  </div>
+</template>
+
 <template id="m-contests">
   <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="yatsu" data-k="組"></div><h2>THE SYNDICATE</h2><p>Launch contests for DG3 Prediction Market Terminal, planned so new users had a reason to trade from day one.</p></div>
   <div class="mbody">
@@ -735,29 +840,67 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
 </template>
 
 <template id="m-signals">
-  <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="ring" data-k="読"></div><h2>ESPORTS SIGNALS</h2><p>An AI-assisted model that scans esports markets on Polymarket for mispricing and wrong sentiment, then posts the call.</p></div>
+  <div class="mhero"><div class="pat kik"></div><div class="cr" data-crest="ring" data-k="読"></div><h2>ESPORTS SIGNALS</h2><p>An AI-assisted model that argues with Polymarket's esports prices, and a human who argues with the model.</p></div>
   <div class="mbody">
-    <div class="blk"><h4><em>一</em>The goal</h4><p>Scan the whole market and find opportunities: prices that are wrong, and sentiment that doesn't match the data. The aim isn't only to find markets that win, but to find them at a price that makes winning worth it.</p></div>
-    <div class="blk"><h4><em>二</em>How it works</h4>
-      <div class="flow">
-        <div class="node" style="--i:0"><b>1</b>Pull open esports markets from Polymarket</div><div class="link" style="--i:0"></div>
-        <div class="node" style="--i:1"><b>2</b>Feed in match data: grid.gg and bo3.gg (CS2), VLR.gg (Valorant), OpenDota, Leaguepedia</div><div class="link" style="--i:1"></div>
-        <div class="node" style="--i:2"><b>3</b>Model a fair price for each outcome</div><div class="link" style="--i:2"></div>
-        <div class="node" style="--i:3"><b>4</b>Compare the fair price with the market price</div><div class="link" style="--i:3"></div>
-        <div class="node hot" style="--i:4"><b>5</b>Gap worth taking? Post the call on X</div>
+    <div class="blk"><h4><em>一</em>The goal</h4>
+      <p>Scan every open esports market and find the ones the crowd has priced wrong. Not just picks that win, but picks bought at a price that makes winning worth it.</p>
+      <p>Favourites are the laziest trade in sport, and markets charge for that comfort. The model was built without the instinct to back them.</p></div>
+    <div class="blk ink"><h4><em>二</em>The design rule: argue with the price, not the team</h4>
+      <p>Every match starts from Polymarket's own price, pulled from its Gamma API and de-vigged to strip out the margin. That's the market's true opinion. The model's only job is to disagree with it, with evidence.</p></div>
+    <div class="blk"><h4><em>三</em>Where the evidence comes from</h4>
+      <div class="srcgrid">
+        <div><b>CS2</b><span>bo3.gg for rankings and match history, GRID for 35 days of player K/D</span></div>
+        <div><b>Dota 2</b><span>OpenDota: team ratings, history, rosters</span></div>
+        <div><b>League</b><span>Leaguepedia: history, kill-share dominance, player form</span></div>
+        <div><b>Valorant</b><span>vlr.gg</span></div>
       </div></div>
-    <div class="blk ink"><h4><em>三</em>One call: 9z vs FURIA</h4>
-      <p>The market gave 9z almost no chance of taking a map. Our data on both teams said otherwise.</p>
-      <div class="bars">
-        <div class="bar-row"><span>MARKET PRICE · 9z to take a map</span><div class="track"><div class="fill t" style="--w:33%"><i>33¢</i></div></div></div>
-        <div class="bar-row"><span>MODEL FAIR VALUE</span><div class="track"><div class="fill" style="--w:68%">68%</div></div></div>
+    <div class="blk"><h4><em>四</em>The maths</h4>
+      <div class="flow">
+        <div class="node" style="--i:0"><b>1</b>Elo-style team rating, recent same-tier results weighted heavier</div><div class="link" style="--i:0"></div>
+        <div class="node" style="--i:1"><b>2</b>Blend in head-to-head history: history gets a vote, not a veto</div><div class="link" style="--i:1"></div>
+        <div class="node" style="--i:2"><b>3</b>Layer in recent player form: it matters, it doesn't overrule</div><div class="link" style="--i:2"></div>
+        <div class="node hot" style="--i:3"><b>4</b>Edge = fair price minus the de-vigged market price</div>
       </div>
-      <p>9z took map one, then lost the series 2-1. Right on the map, right on the spread, and bought at a price worth buying.</p>
-</div>
-    <div class="two">
-      <div class="blk ink stat" style="min-height:0"><b data-count="229">229</b><span>calls made</span></div>
-      <div class="blk ink stat" style="min-height:0"><b>68% · 17%</b><span>correct · return</span></div>
-    </div>
+      <div class="f">fair = 0.85 × Elo + 0.15 × head-to-head</div>
+      <div class="f">fair = 0.75 × fair + 0.25 × form</div>
+      <p>One guard rail: if rankings, history and form don't all point the same way, conviction gets capped. No loud picks on thin evidence.</p></div>
+    <div class="blk ink"><h4><em>五</em>The human in the loop</h4>
+      <p>Not every signal gets posted. When the model and I disagree, the pick gets benched or reshaped. That disagreement is the quality control.</p>
+      <p>Spirit vs MOUZ, BLAST Bounty grand final. The model liked MOUZ +1.5 maps at 41¢. A best-of-five explained part of the discount, but I still wasn't sold on +1.5 alone, so I overrode it and bought MOUZ +2.5 at 69¢ instead.</p>
+      <p>MOUZ won the final 3-1, a result almost nobody had priced in. The model's pick and my override both landed. The model does the maths. I do the second-guessing.</p></div>
+    <div class="blk"><h4><em>六</em>One match: 9z vs FURIA</h4>
+      <p>The first slate on the ledger. The market didn't rate 9z. The model found three ways it was wrong, and all three landed.</p>
+      <div class="calls">
+        <div><span>9z to win map 1</span><b>36¢</b><em>+178%</em></div>
+        <div><span>Over 2.5 maps</span><b>42¢</b><em>+138%</em></div>
+        <div><span>9z +1.5 maps</span><b>55¢</b><em>+82%</em></div>
+      </div></div>
+    <div class="blk ink"><h4><em>七</em>The ledger</h4>
+      <p>Every posted pick, one unit each, nothing deleted. Running profit in units:</p>
+      <div class="curve"><svg viewBox="0 0 600 220" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="10" y1="210" x2="590" y2="210" class="base"/>
+        <path d="M10.0,205.9 L12.0,196.9 L14.0,189.9 L16.0,184.0 L18.1,176.4 L20.1,172.5 L22.1,177.5 L24.1,174.9 L26.1,168.5 L28.1,165.1 L30.1,170.2 L32.2,167.2 L34.2,164.2 L36.2,169.3 L38.2,166.9 L40.2,164.1 L42.2,169.1 L44.2,174.2 L46.2,179.2 L48.3,176.7 L50.3,176.0 L52.3,173.8 L54.3,166.2 L56.3,171.3 L58.3,168.9 L60.3,163.8 L62.4,158.1 L64.4,155.3 L66.4,160.4 L68.4,155.1 L70.4,151.9 L72.4,146.4 L74.4,141.9 L76.5,131.7 L78.5,128.5 L80.5,133.5 L82.5,130.8 L84.5,128.5 L86.5,125.3 L88.5,115.5 L90.6,120.5 L92.6,125.6 L94.6,119.7 L96.6,117.4 L98.6,112.1 L100.6,117.2 L102.6,113.2 L104.7,110.7 L106.7,115.8 L108.7,112.0 L110.7,117.0 L112.7,112.2 L114.7,117.2 L116.7,114.6 L118.8,109.2 L120.8,114.2 L122.8,112.0 L124.8,102.2 L126.8,107.3 L128.8,112.3 L130.8,117.4 L132.8,114.9 L134.9,119.9 L136.9,116.4 L138.9,114.2 L140.9,119.2 L142.9,124.3 L144.9,121.4 L146.9,118.8 L149.0,116.0 L151.0,112.6 L153.0,108.7 L155.0,106.7 L157.0,104.0 L159.0,101.4 L161.0,99.0 L163.1,104.1 L165.1,101.2 L167.1,96.4 L169.1,94.8 L171.1,99.8 L173.1,95.5 L175.1,88.0 L177.2,93.0 L179.2,98.0 L181.2,95.4 L183.2,100.5 L185.2,95.8 L187.2,92.3 L189.2,82.5 L191.2,77.3 L193.3,82.3 L195.3,79.0 L197.3,76.7 L199.3,81.7 L201.3,79.5 L203.3,77.0 L205.3,73.9 L207.4,78.9 L209.4,84.0 L211.4,81.5 L213.4,86.5 L215.4,82.6 L217.4,87.6 L219.4,81.9 L221.5,78.0 L223.5,83.0 L225.5,78.4 L227.5,76.4 L229.5,74.0 L231.5,66.8 L233.5,61.9 L235.6,67.0 L237.6,72.0 L239.6,69.7 L241.6,74.8 L243.6,72.5 L245.6,77.6 L247.6,74.8 L249.7,71.0 L251.7,65.6 L253.7,61.8 L255.7,59.4 L257.7,55.7 L259.7,51.8 L261.7,48.0 L263.8,53.0 L265.8,50.9 L267.8,48.1 L269.8,53.2 L271.8,50.1 L273.8,55.1 L275.8,60.2 L277.8,56.2 L279.9,61.2 L281.9,58.9 L283.9,56.1 L285.9,53.3 L287.9,49.5 L289.9,54.5 L291.9,51.8 L294.0,45.7 L296.0,41.5 L298.0,39.3 L300.0,44.3 L302.0,40.2 L304.0,45.2 L306.0,50.3 L308.1,55.3 L310.1,52.8 L312.1,57.9 L314.1,56.4 L316.1,61.4 L318.1,59.4 L320.1,57.6 L322.2,54.4 L324.2,51.3 L326.2,46.4 L328.2,51.5 L330.2,56.5 L332.2,53.4 L334.2,50.9 L336.2,44.2 L338.3,41.4 L340.3,39.3 L342.3,36.4 L344.3,41.4 L346.3,46.5 L348.3,43.0 L350.3,40.2 L352.4,37.2 L354.4,34.9 L356.4,39.9 L358.4,45.0 L360.4,42.6 L362.4,39.8 L364.4,37.5 L366.5,42.5 L368.5,40.3 L370.5,45.3 L372.5,42.0 L374.5,47.0 L376.5,45.1 L378.5,41.2 L380.6,46.2 L382.6,43.8 L384.6,41.2 L386.6,46.3 L388.6,44.1 L390.6,41.5 L392.6,46.6 L394.7,45.1 L396.7,42.4 L398.7,39.1 L400.7,44.2 L402.7,49.2 L404.7,45.1 L406.7,42.8 L408.8,39.9 L410.8,37.0 L412.8,42.1 L414.8,40.2 L416.8,32.6 L418.8,25.9 L420.8,31.0 L422.8,36.0 L424.9,41.1 L426.9,38.1 L428.9,43.2 L430.9,39.7 L432.9,36.6 L434.9,33.8 L436.9,32.6 L439.0,28.8 L441.0,26.9 L443.0,23.1 L445.0,19.9 L447.0,17.5 L449.0,22.6 L451.0,20.8 L453.1,19.4 L455.1,17.4 L457.1,22.4 L459.1,13.1 L461.1,10.7 L463.1,15.7 L465.1,12.4 L467.2,10.0 L469.2,15.0 L471.2,20.1 L473.2,25.1 L475.2,21.3 L477.2,26.4 L479.2,21.7 L481.2,15.8 L483.3,12.0 L485.3,17.0 L487.3,22.1 L489.3,27.1 L491.3,32.2 L493.3,29.1 L495.3,25.1 L497.4,23.0 L499.4,20.1 L501.4,15.6 L503.4,20.7 L505.4,16.7 L507.4,21.8 L509.4,19.5 L511.5,24.5 L513.5,29.6 L515.5,34.6 L517.5,39.7 L519.5,44.7 L521.5,49.8 L523.5,54.8 L525.6,50.0 L527.6,43.8 L529.6,48.9 L531.6,46.0 L533.6,51.1 L535.6,48.8 L537.6,53.8 L539.7,58.9 L541.7,63.9 L543.7,61.7 L545.7,66.7 L547.7,71.8 L549.7,69.3 L551.7,63.8 L553.8,58.1 L555.8,63.2 L557.8,68.2 L559.8,65.4 L561.8,63.0 L563.8,53.2 L565.8,43.4 L567.8,39.1 L569.9,36.8 L571.9,41.9 L573.9,46.9 L575.9,52.0 L577.9,57.0 L579.9,62.1 L581.9,58.7 L584.0,54.7 L586.0,49.5 L588.0,54.5 L590.0,59.6" class="ln"/>
+        <line x1="469.2" y1="0" x2="469.2" y2="220" class="mark"/></svg>
+        <span class="tag229">Call 229</span></div>
+      <div class="ax light"><span>18 Jun</span><span>Call 145</span><span>31 Aug</span></div>
+      <div class="trio dark"><div><b>229</b><span>first calls: 68% right, 17% return</span></div><div><b>289</b><span>full ledger: 64% right, 10% return</span></div><div><b>+29.8</b><span>units profit, flat stakes</span></div></div>
+      <p class="src">From the Signal Ledger, 18 June to 31 August 2026.</p>
+      <h4 class="sub">Why the late-August dip doesn't change the read</h4>
+      <p>The last 60 calls hit 47% and gave back 8.8 units. Almost all of it, 8.5 units, came from one place: picks priced 50 to 59¢, which hit 36% in that run. Everything else held roughly level.</p>
+      <p>A leak you can point to in one price band is a filter to add, not a broken model. And even after its worst run, the ledger finished +29.8 units at flat stakes, a 10% return. That's the point of keeping every pick on the record: the bad weeks tell you exactly where to look.</p></div>
+    <div class="blk"><h4><em>八</em>Where it earns, where it doesn't</h4>
+      <p>Return per pick, by the price the market was charging:</p>
+      <div class="hbars roi">
+        <div class="hb"><span>30 to 39¢ · 13 picks</span><i style="--w:100%"></i><b>+80%</b></div>
+        <div class="hb"><span>40 to 49¢ · 46 picks</span><i style="--w:26%"></i><b>+21%</b></div>
+        <div class="hb"><span>50 to 59¢ · 76 picks</span><i style="--w:2.5%"></i><b>+2%</b></div>
+        <div class="hb"><span>60 to 69¢ · 125 picks</span><i style="--w:11.5%"></i><b>+9%</b></div>
+        <div class="hb neg"><span>70¢ and up · 28 picks</span><i style="--w:4%"></i><b>-3%</b></div>
+      </div>
+      <p>The money was in the cheap seats: prices the market treated as afterthoughts. The one place it lost was overpriced certainty, where the market was already sure.</p></div>
+    <div class="blk ink"><h4><em>九</em>By game</h4>
+      <div class="sports"><div><b>68%</b><span>Valorant · 71</span></div><div><b>67%</b><span>Dota 2 · 21</span></div><div><b>62%</b><span>League · 106</span></div><div><b>61%</b><span>CS2 · 92</span></div></div>
+      <p class="src">Hit rate and number of picks per title, full ledger.</p></div>
   </div>
 </template>
 
@@ -808,7 +951,7 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
   <div class="enso"></div>
   <h2>TO BE CONTINUED...</h2>
   <p>The next volume needs a publisher. Let's talk.</p>
-  <div class="btns"><div class="cvwrap"><button class="cvbtn" type="button" aria-expanded="false" aria-haspopup="true">CV ▾</button><div class="cvmenu" role="menu"><a role="menuitem" href="cv-customer-success.pdf" download="Siddhant_Rawat_CV_CSM.pdf">Customer Success CV</a><a role="menuitem" href="cv-growth.pdf" download="Siddhant_Rawat_CV_Growth.pdf">Growth CV</a></div></div><a class="btn" href="mailto:siddhantsrawat@gmail.com">EMAIL</a><a class="btn" href="https://linkedin.com/in/siddhantsrawat" target="_blank" rel="noopener">LINKEDIN</a><a class="btn" href="https://x.com/Siddhantsrawat" target="_blank" rel="noopener">X</a><a class="btn" href="tel:+919636690640">+91 96366 90640</a></div>
+  <div class="btns"><div class="cvwrap"><button class="cvbtn" type="button" aria-expanded="false" aria-haspopup="true">CV ▾</button><div class="cvmenu" role="menu"><a role="menuitem" href="Siddhant_Rawat_CV_CSM.pdf" download>Customer Success CV</a><a role="menuitem" href="Siddhant_Rawat_CV_Growth.pdf" download>Growth CV</a></div></div><a class="btn" href="mailto:siddhantsrawat@gmail.com">EMAIL</a><a class="btn" href="https://linkedin.com/in/siddhantsrawat" target="_blank" rel="noopener">LINKEDIN</a><a class="btn" href="https://x.com/Siddhantsrawat" target="_blank" rel="noopener">X</a><a class="btn" href="tel:+919636690640">+91 96366 90640</a></div>
 </section>
 <footer>© 2026 Siddhant Singh Rawat · Bengaluru</footer>
 
@@ -1000,5 +1143,6 @@ footer{background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-w
   document.querySelectorAll('.vol, .reveal').forEach(function(el){ io.observe(el); });
 })();
 </script>
+<script data-goatcounter="https://siddhantrawat.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
